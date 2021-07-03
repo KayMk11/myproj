@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="search">
+    <form [formGroup]="searchDamaged">
+      <h2 class="header">All Damaged Books</h2>
+      <input type="text" id="search" placeholder="Search" class="col-lg-10" formControlName="searchText">
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+  </div>
+  <table class="table table-sm table-bordered table-striped">
+    <tr class="thead">
+      <th width="20%">Book ID</th>
+      <th width="60%">Description</th>
+      <th width="20%">quantity</th>
+    </tr>
+    <tr *ngFor='let dbooks of DamagedBooks'>
+      <td>{{dbooks.bookId}}</td>
+      <td>{{dbooks.description}}</td>
+      <td>{{dbooks.quantity}}</td>
+      <td>
+        <button class="btn btn-success btn-sm"
+          data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
+        <button class="btn btn-danger btn-sm ml-2">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>

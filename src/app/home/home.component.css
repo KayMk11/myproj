@@ -1,0 +1,9 @@
+body{
+  background: transparent;
+  background-size: cover;
+  text-align: center;
+  min-height: 90vh;
+}
+h1{
+  color: White;
+}

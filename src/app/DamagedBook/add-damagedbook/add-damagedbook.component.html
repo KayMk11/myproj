@@ -1,0 +1,40 @@
+<html>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="header"><h2>Add Damaged Book</h2></div>
+        <form [formGroup]="damagedbook" (ngSubmit)="onSubmit()"  id="form" class="form">
+          <div class="form-group">
+            <!-- Book ID will be pre filled -->
+            <label for="bookid">Book ID:</label>
+            <input  class="form-control" placeholder="Book ID" id="bookid" type="text" formControlName="bookid"/>
+          </div>
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" name="description" id="description"
+            placeholder="Description" cols="25" rows="4" formControlName="description"
+            [ngClass]="{ 'is-invalid': submitted && damagedbook.get('description').errors }"></textarea>
+            <div class="alert alert-danger" *ngIf="damagedbook.get('description').invalid
+              && damagedbook.get('description').touched">
+              <div *ngIf="damagedbook.get('description').errors.required">
+                Description is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input  class="form-control" placeholder="Quantity" id="quantity" type="number" formControlName="quantity"
+            [ngClass]="{ 'is-invalid': submitted && damagedbook.get('quantity').errors }"/>
+            <div class="alert alert-danger" *ngIf="damagedbook.get('quantity').invalid
+              && damagedbook.get('quantity').touched">
+              <div *ngIf="damagedbook.get('quantity').errors.required">
+                Quantity is required
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+body{
+  background-image: url('src/app/Admin/images/pexels-suzy-hazelwood-1122865.jpg');
+  background-size: cover;
+  background-size: 100%;
+  min-height: 100vh;
+}
+button{
+  background: transparent;
+}
+.nav-link{
+  color:white;
+}

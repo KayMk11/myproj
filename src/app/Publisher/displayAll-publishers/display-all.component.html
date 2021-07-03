@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="search">
+    <form [formGroup]="searchPublisher">
+      <h2 class="header">All Publishers</h2>
+      <input type="text" id="search" placeholder="Search" class="col-lg-10" formControlName="searchText">
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+  </div>
+  <table class="table table-sm table-bordered table-striped">
+    <tr>
+      <th>publisherId</th>
+      <th>Publisher Name</th>
+      <th>Contact No</th>
+      <th>Email</th>
+      <th>Address1</th>
+      <th>Address2</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Pincode</th>
+    </tr>
+    <tr *ngFor='let publisher of publishers'>
+      <td>{{publisher.publisherId}}</td>
+      <td>{{publisher.publisherName}}</td>
+      <td>{{publisher.contactNo}}</td>
+      <td>{{publisher.email}}</td>
+      <td>{{publisher.address1}}</td>
+      <td>{{publisher.address2}}</td>
+      <td>{{publisher.city}}</td>
+      <td>{{publisher.state}}</td>
+      <td>{{publisher.pincode}}</td>
+      <td>
+        <button class="btn btn-success btn-sm"
+          data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
+        <button class="btn btn-danger btn-sm ml-2">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>
