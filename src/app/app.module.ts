@@ -26,6 +26,13 @@ import { AddorderComponent } from './Orderbooks/addorder/addorder.component';
 import { AllordersComponent } from './Orderbooks/allorders/allorders.component';
 import { AddauthorComponent } from './Author/addauthor/addauthor.component';
 import { AllauthorsComponent } from './Author/allauthors/allauthors.component';
+import { UserMenuComponent } from './User/user-menu/user-menu.component';
+import { UserHomeComponent } from './User/user-home/user-home.component';
+import { BookissueComponent } from './User/bookissue/bookissue.component';
+import { AddfeedbackComponent } from './Feedback/addfeedback/addfeedback.component';
+import { ViewprofileComponent } from './User/viewprofile/viewprofile.component';
+import { UpdatepasswordComponent } from './User/updatepassword/updatepassword.component';
+
 
 
 @NgModule({
@@ -50,7 +57,13 @@ import { AllauthorsComponent } from './Author/allauthors/allauthors.component';
     AddorderComponent,
     AllordersComponent,
     AddauthorComponent,
-    AllauthorsComponent
+    AllauthorsComponent,
+    UserMenuComponent,
+    UserHomeComponent,
+    BookissueComponent,
+    AddfeedbackComponent,
+    ViewprofileComponent,
+    UpdatepasswordComponent
   ],
   imports: [
     BrowserModule,

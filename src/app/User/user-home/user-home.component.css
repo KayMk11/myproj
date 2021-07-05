@@ -1,0 +1,25 @@
+
+body{
+  background: transparent;
+
+}
+h1{
+  color:white;
+  text-align: center;
+  font-size: 8rem;
+}
+p{
+  color:black;
+}
+.container{
+  background-color: #f3f1f1;
+  width:50%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+}
+button{
+  margin-right: 0.5rem;
+}
+

@@ -3,11 +3,9 @@ body{
   background-size: cover;
   min-height: 100vh;
 }
-
-button{
-  background: transparent;
-}
-
 .nav-link{
   color:white;
+}
+.pass{
+  justify-content: flex-end;
 }

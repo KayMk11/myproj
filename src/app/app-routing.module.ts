@@ -1,3 +1,7 @@
+import { UpdatepasswordComponent } from './User/updatepassword/updatepassword.component';
+import { AddfeedbackComponent } from './Feedback/addfeedback/addfeedback.component';
+import { UserMenuComponent } from './User/user-menu/user-menu.component';
+import { UserHomeComponent } from './User/user-home/user-home.component';
 import { AllordersComponent } from './Orderbooks/allorders/allorders.component';
 import { AddorderComponent } from './Orderbooks/addorder/addorder.component';
 import { AllfeedbacksComponent } from './Feedback/allfeedbacks/allfeedbacks.component';
@@ -19,13 +23,15 @@ import { DisplayAllComponent } from './Publisher/displayAll-publishers/display-a
 import { AddbookComponent } from './Books/addbook/addbook.component';
 import { AddauthorComponent } from './Author/addauthor/addauthor.component';
 import { AllauthorsComponent } from './Author/allauthors/allauthors.component';
+import { BookissueComponent } from './User/bookissue/bookissue.component';
+import { ViewprofileComponent } from './User/viewprofile/viewprofile.component';
 
 const routes: Routes = [
   {path:'home', component: HomeComponent},
   {path:'signup', component: SignUpComponent},
   {path:'login', component: LoginComponent},
-  {path:'adminhome', component: AdminHomeComponent},
   {path:'adminmenu', component:AdminMenuComponent},
+  {path:'adminhome', component: AdminHomeComponent},
   {path:'addbook', component:AddbookComponent},
   {path:'displayallbooks', component: DisplayallBooksComponent},
   {path:'booksearch', component: BooksearchComponent},
@@ -39,8 +45,14 @@ const routes: Routes = [
   {path:'orderbooks', component:AddorderComponent},
   {path:'orderlist', component:AllordersComponent},
   {path:'addauthor', component:AddauthorComponent},
-  {path:'allauthor', component:AllauthorsComponent}
+  {path:'allauthor', component:AllauthorsComponent},
 
+  {path:'usermenu', component: UserMenuComponent},
+  {path:'userhome', component: UserHomeComponent},
+  {path:'issuebook', component: BookissueComponent},
+  {path:'addfeedback', component: AddfeedbackComponent},
+  {path:'viewprofile', component: ViewprofileComponent},
+  {path:'updatepassword', component:UpdatepasswordComponent}
 
 ];
 

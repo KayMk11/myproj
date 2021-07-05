@@ -9,7 +9,7 @@ import { Users } from '../models/users.model';
 })
 export class SignUpComponent implements OnInit {
   signupForm: FormGroup;
-  roles= ['User', 'Admin'];
+  // roles= ['User', 'Admin'];
   user:Users;
   selectedRoles: string[];
   submitted = false;
@@ -25,7 +25,7 @@ export class SignUpComponent implements OnInit {
       lastname: new FormControl(null,Validators.required),
       mobilenumber: new FormControl(null, [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
       dob:new FormControl(null, [Validators.required]),
-      roles: new FormControl(null, [Validators.required])
+      // roles: new FormControl(null, [Validators.required])
     })
   }
   onSubmit(){

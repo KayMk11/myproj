@@ -13,7 +13,9 @@ export class AddorderComponent implements OnInit {
 
   ngOnInit(): void {
     this.orderbook = new FormGroup({
-      quantity: new FormControl(null,[Validators.required])
+      quantity: new FormControl(null, [Validators.required]),
+      publisherId: new FormControl(null, [Validators.required]),
+      orderDate: new FormControl((new Date()).toISOString().substring(0, 10))
     })
   }
   onSubmit(){

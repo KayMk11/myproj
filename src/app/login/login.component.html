@@ -5,8 +5,8 @@
         <div class="header">
           <h2>Login </h2>
         </div>
-        <form [formGroup]="loginForm"  id="form" class="form">
-          <div class="form-group" (ngSubmit)="onSubmit()" >
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" id="form" class="form">
+          <div class="form-group">
               <label for="username">Username</label>
               <input type="text" placeholder=" Username" id="username" formControlName="username"
               [ngClass]="{ 'is-invalid': submitted && loginForm.get('username').errors }"/>
@@ -15,7 +15,7 @@
                     Username is required.
                 </div>
                 <div *ngIf="loginForm.get('username').errors.minlength">
-                    username must be at least 5 characters long.
+                    Username must be at least 5 characters long.
                 </div>
               </div>
           </div>

@@ -1,0 +1,47 @@
+<html>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class=" nav navbar-nav">
+            <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link" [routerLink]="['/userhome']" href="#"><b>Home</b></a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link" [routerLink]="['/viewprofile']" href="#">View Profile</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Books
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/issuebook']" href="#">Issue Book</a></li>
+                <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/suggestbook']"  href="#">Suggest Book</a></li>
+              </ul>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link" [routerLink]="['/addfeedback']" href="#">Feedback</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link" [routerLink]="['/allauthor']" href="#">Authors</a>
+            </li>
+            <li class="nav-item pass" routerLinkActive="active">
+              <a class="nav-link" [routerLink]="['/updatepassword']" href="#">Update Password</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <p></p>
+       </div>
+       <div class="row">
+        <div class="col-sm-12">
+          <router-outlet></router-outlet>
+         </div>
+       </div>
+     </div>
+  </body>
+</html>

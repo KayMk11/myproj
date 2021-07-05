@@ -10,7 +10,7 @@ body {
   background: transparent;
 }
 .header {
-	border-bottom: 2px solid #f0f0f0;
+	border-bottom: 2px solid black;
 	padding: 20px 40px;
   color: black;
   font-family: 'Open Sans', sans-serif;

@@ -3,10 +3,10 @@
   height:100%;
 }
 body{
-  background: url('src/app/menu/images/pexels-janko-ferlic-590493.jpg');
+  background: url('src/app/menu/images/pexels-janko-ferlic-590493.jpg') no-repeat center fixed;
   background-size: cover;
   background-size: 100%;
 }
-.nav-item{
+.nav-link{
   color: whitesmoke;
 }

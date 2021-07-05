@@ -1,0 +1,137 @@
+<div class="row">
+  <div class="search">
+    <form [formGroup]="issueBooks">
+      <h2 class="header">Issue a Book</h2>
+      <input type="text" id="search" placeholder="Search" class="col-lg-10" formControlName="searchText">
+      <button type="submit" class="btn btn-primary">Search</button>
+      <!-- Book search part will be at this point only -->
+    </form>
+  </div>
+
+  <table class="table table-sm table-bordered table-striped">
+    <tr>
+      <th>BookId</th>
+      <th>Title</th>
+      <th>Subject</th>
+      <th>Author Id</th>
+      <th>Publisher Id</th>
+      <th>Published Year</th>
+      <th>ISBN</th>
+      <th>Quantity</th>
+      <th>Shelf Details</th>
+      <th>BookCost</th>
+    </tr>
+    <tr *ngFor='let book of books'>
+      <td>{{book.bookId}}</td>
+      <td>{{book.title}}</td>
+      <td>{{book.subject}}</td>
+      <td>{{book.authorIdList}}</td>
+      <td>{{book.publisherId}}</td>
+      <td>{{book.publishedYear}}</td>
+      <td>{{book.isbn}}</td>
+      <td>{{book.quantity}}</td>
+      <td>{{book.shelfDetails}}</td>
+      <td>{{book.bookCost}}</td>
+      <td>
+        <button class="btn btn-success btn-sm" data-bs-toggle="modal"
+          data-bs-target="#issueModal">Issue</button>
+        <button class="btn btn-danger btn-sm ml-2" data-bs-toggle="modal"
+          data-bs-target="#returnModal">Return</button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<!-- Book Issue form will be displayed as modal form with some filleds pre filled -->
+
+<div class="modal" id="issueModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Issue Book</h5>
+        <button type="button" class="btn-close" #closebutton data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="form-sm" [formGroup]="issueBooks" (ngSubmit)="onSubmit()">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="book">Book</label>
+            <input type="text" class="form-control" id="book" placeholder="book Id" formControlName="book"/>
+          </div>
+         <div class="form-group">
+            <label for="user">User</label>
+            <input type="text" class="form-control" id="user"  placeholder="User Id"
+             formControlName="user">
+          </div>
+          <div class="form-group">
+            <label for="issueDate">Issue Date</label>
+            <input type="date" class="form-control" id="issueDate"
+              formControlName="issueDate"/>
+          </div>
+          <div class="form-group">
+            <label for="returnDate">Return Date</label>
+            <input type="date" class="form-control" id="returnDate"
+              formControlName="returnDate"/>
+          </div>
+          <div class="form-group">
+            <label for="status">User</label>
+            <input type="text" class="form-control" id="status"  placeholder="Status"
+             formControlName="status">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Add</button>
+          <button type="button" class="btn btn-danger">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Return book Modal form will also be dispaly with pre filled details and fine -->
+<!-- <div class="modal" id="returnModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Issue Book</h5>
+        <button type="button" class="btn-close" #closebutton data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="form-sm" [formGroup]="issueBooks" (ngSubmit)="onSubmit()">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="book">Book</label>
+            <input type="text" class="form-control" id="book" placeholder="book Id" formControlName="book"/>
+          </div>
+         <div class="form-group">
+            <label for="user">User</label>
+            <input type="text" class="form-control" id="user"  placeholder="User Id"
+             formControlName="user">
+          </div>
+          <div class="form-group">
+            <label for="issueDate">Issue Date</label>
+            <input type="date" class="form-control" id="issueDate"
+              formControlName="issueDate"/>
+          </div>
+          <div class="form-group">
+            <label for="returnDate">Return Date</label>
+            <input type="date" class="form-control" id="returnDate"
+              formControlName="returnDate"/>
+          </div>
+          <div class="form-group">
+            <label for="fine">Fine</label>
+            <input type="text" class="form-control" id="fine"  placeholder="Fine"
+             formControlName="fine">
+          </div>
+          <div class="form-group">
+            <label for="status">User</label>
+            <input type="text" class="form-control" id="status"  placeholder="Status"
+             formControlName="status">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Return</button>
+          <button type="button" class="btn btn-danger">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->

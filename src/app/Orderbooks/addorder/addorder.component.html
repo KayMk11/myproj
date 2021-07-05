@@ -28,12 +28,19 @@
           </div>
           <div class="form-group">
             <!-- will Add a modal form for adding a book -->
-            <label for="bookIdList">Books to be ordered</label>
+            <label for="bookIdList">Book ID(s)</label>
             <input  class="form-control" placeholder="Book ID" id="bookIdList" type="text" formControlName="bookIdList"/>
           </div>
           <div class="form-group">
-            <label for="publisherId">Books to be ordered</label>
-            <input  class="form-control" placeholder="Publisher ID" id="publisherId" type="text" formControlName="publisherId"/>
+            <label for="publisherId">Publisher ID</label>
+            <input  class="form-control" placeholder="Publisher ID" id="publisherId" type="text"
+            [ngClass]="{ 'is-invalid': submitted && orderbook.get('publisherId').errors }" formControlName="publisherId"/>
+            <div class="alert alert-danger" *ngIf="orderbook.get('publisherId').invalid
+              && orderbook.get('publisherId').touched">
+              <div *ngIf="orderbook.get('publisherId').errors.required">
+                Publisher ID is required
+              </div>
+            </div>
           </div>
           <button type="submit" class="btn btn-success">Place Order</button>
         </form>
