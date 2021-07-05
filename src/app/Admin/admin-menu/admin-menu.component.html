@@ -12,9 +12,18 @@
                 Books
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/add']"  href="#">Add Book</a></li>
+                <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/addbook']"  href="#">Add Book</a></li>
                 <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/displayallbooks']" href="#">All Books</a></li>
                 <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/booksearch']"  href="#">Search Books</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Author
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/addauthor']"  href="#">Add Author</a></li>
+                <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/allauthor']" href="#">All Authors</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown">
@@ -42,6 +51,18 @@
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/suggestbook']"  href="#">Suggest Book</a></li>
                 <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/displayallsuggestedbooks']" href="#">All Suggested Books</a></li>
+              </ul>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link" [routerLink]="['/feedbacks']" href="#">Feedbacks</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Order Books
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/orderbooks']"  href="#">Add Order</a></li>
+                <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/orderlist']" href="#">Order History</a></li>
               </ul>
             </li>
           </ul>

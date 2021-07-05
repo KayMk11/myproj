@@ -20,8 +20,13 @@ import { AddDamagedbookComponent } from './DamagedBook/add-damagedbook/add-damag
 import { DisplayallDamagedbooksComponent } from './DamagedBook/displayall-damagedbooks/displayall-damagedbooks.component';
 import { SuggestbookComponent } from './SuggestBook/suggestbook/suggestbook.component';
 import { AllsuggestedbooksComponent } from './SuggestBook/allsuggestedbooks/allsuggestedbooks.component';
-import { BookorderComponent } from './Books/bookorder/bookorder.component';
 import { AddbookComponent } from './Books/addbook/addbook.component';
+import { AllfeedbacksComponent } from './Feedback/allfeedbacks/allfeedbacks.component';
+import { AddorderComponent } from './Orderbooks/addorder/addorder.component';
+import { AllordersComponent } from './Orderbooks/allorders/allorders.component';
+import { AddauthorComponent } from './Author/addauthor/addauthor.component';
+import { AllauthorsComponent } from './Author/allauthors/allauthors.component';
+
 
 @NgModule({
   declarations: [
@@ -40,8 +45,12 @@ import { AddbookComponent } from './Books/addbook/addbook.component';
     DisplayallDamagedbooksComponent,
     SuggestbookComponent,
     AllsuggestedbooksComponent,
-    BookorderComponent,
     AddbookComponent,
+    AllfeedbacksComponent,
+    AddorderComponent,
+    AllordersComponent,
+    AddauthorComponent,
+    AllauthorsComponent
   ],
   imports: [
     BrowserModule,

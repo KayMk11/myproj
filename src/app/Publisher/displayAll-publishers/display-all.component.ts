@@ -1,6 +1,6 @@
 import { FormGroup } from '@angular/forms';
-import { Publisher } from './../publisher.model';
 import { Component, OnInit } from '@angular/core';
+import { Publisher } from 'src/app/models/publisher.model';
 
 @Component({
   selector: 'app-display-all',

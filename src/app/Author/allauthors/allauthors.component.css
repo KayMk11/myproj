@@ -1,0 +1,25 @@
+table{
+  background-color: white;
+  border-radius: 0.25rem;
+}
+
+#search{
+  margin-right: 1.25rem;
+  margin-bottom: 0.625rem;
+  width: 30rem;
+}
+button{
+  margin-bottom: 0.5rem;
+  padding: 0.125rem;
+}
+form{
+  float: right;
+}
+.header{
+  color:white;
+  float: left;
+  margin-right: 23rem;
+}
+.thead{
+  text-align: center;
+}

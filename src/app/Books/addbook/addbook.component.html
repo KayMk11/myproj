@@ -1,1 +1,134 @@
-<p>addbook works!</p>
+<html>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="header"><h2>Add Book</h2></div>
+        <form [formGroup]="addbookForm" (ngSubmit)="onSubmit()" id="form" class="form">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && addbookForm.get('title').errors }"
+             placeholder="Title" id="title" formControlName="title"/>
+            <div class="alert alert-danger" *ngIf="addbookForm.get('title').invalid
+              && addbookForm.get('title').touched">
+              <div *ngIf="addbookForm.get('title').errors.required">
+                Title is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && addbookForm.get('subject').errors }"
+             placeholder="Subject" id="subject" formControlName="subject"/>
+            <div class="alert alert-danger" *ngIf="addbookForm.get('subject').invalid
+              && addbookForm.get('subject').touched">
+              <div *ngIf="addbookForm.get('subject').errors.required">
+                Subject is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="publishedYear">Published Year</label>
+            <input type="text" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && addbookForm.get('publishedYear').errors }"
+             placeholder="Published Year" id="publishedYear" formControlName="publishedYear"/>
+            <div class="alert alert-danger" *ngIf="addbookForm.get('publishedYear').invalid
+              && addbookForm.get('publishedYear').touched">
+              <div *ngIf="addbookForm.get('publishedYear').errors.required">
+                Published Year is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="publisherId">Publisher ID</label>
+            <input type="text" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && addbookForm.get('publisherId').errors }"
+             placeholder="Publisher ID" id="publisherId" formControlName="publisherId"/>
+            <div class="alert alert-danger" *ngIf="addbookForm.get('publisherId').invalid
+              && addbookForm.get('publisherId').touched">
+              <div *ngIf="addbookForm.get('publisherId').errors.required">
+                Published ID is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="isbn">ISBN</label>
+            <input type="text" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && addbookForm.get('isbn').errors}"
+             placeholder="ISBN number" id="isbn" formControlName="isbn"/>
+            <div class="alert alert-danger" *ngIf="addbookForm.get('isbn').invalid
+              && addbookForm.get('isbn').touched">
+              <div *ngIf="addbookForm.get('isbn').errors.required">
+                ISBN number is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input  class="form-control" placeholder="Quantity" id="quantity" type="number" formControlName="quantity"
+            [ngClass]="{ 'is-invalid': submitted && addbookForm.get('quantity').errors }"/>
+            <div class="alert alert-danger" *ngIf="addbookForm.get('quantity').invalid
+              && addbookForm.get('quantity').touched">
+              <div *ngIf="addbookForm.get('quantity').errors.required">
+                Quantity is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="shelfDetails">Shelf-Details</label>
+            <input type="text" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && addbookForm.get('shelfDetails').errors }"
+             placeholder="Shelf Details" id="shelfDetails" formControlName="shelfDetails"/>
+            <div class="alert alert-danger" *ngIf="addbookForm.get('shelfDetails').invalid
+              && addbookForm.get('shelfDetails').touched">
+              <div *ngIf="addbookForm.get('shelfDetails').errors.required">
+                Shelf-Details is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="bookCost">Book Cost</label>
+            <input type="text" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && addbookForm.get('bookCost').errors }"
+             placeholder="Book Cost" id="bookCost" formControlName="bookCost"/>
+            <div class="alert alert-danger" *ngIf="addbookForm.get('bookCost').invalid
+              && addbookForm.get('bookCost').touched">
+              <div *ngIf="addbookForm.get('bookCost').errors.required">
+                Book Cost is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="authorIdList">Authors</label>
+            <input type="text" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && addbookForm.get('authorIdList').errors }"
+             placeholder="authorIdList" id="authorIdList" formControlName="authorIdList"/>
+            <div class="alert alert-danger" *ngIf="addbookForm.get('authorIdList').invalid
+              && addbookForm.get('authorIdList').touched">
+              <div *ngIf="addbookForm.get('authorIdList').errors.required">
+                Author is required
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success">Submit</button>
+          <!-- <div formArrayName="authorses">
+            <button class="btn btn-primary mb-2" type="button" (click)="addauthor()">Add Author</button>
+            <table class="table table-sm">
+              <tr class="form-group"
+               *ngFor="let author of authorses.controls; let i=index">
+                <td [formGroupName]="i">
+                  <input type="text" formControlName="firstName" placeholder="First Name" />
+                  <input type="text" formControlName="lastName" placeholder="Last Name" />
+                  <input type="text" formControlName="email" placeholder="Email" />
+                  <input type="text" formControlName="contactno" placeholder="Contact " />
+                </td>
+                <td><button class="btn btn-danger" type="button" (click)="deleteAuthor(i)">Delete</button></td>
+              </tr>
+            </table>
+          </div> -->
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

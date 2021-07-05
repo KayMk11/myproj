@@ -1,1 +1,90 @@
-<p>add-publisher works!</p>
+<div class="container">
+  <div class="row">
+    <div class="header"><h2>Add Publisher</h2></div>
+    <form [formGroup]="addpublisherForm" (ngSubmit)="onSubmit()" id="form" class="form">
+      <div class="form-group">
+        <label for="publisherName">Name</label>
+        <input type="text" class="form-control"
+         [ngClass]="{ 'is-invalid': submitted && addpublisherForm.get('publisherName').errors }"
+         placeholder="Publisher Name" id="publisherName" formControlName="publisherName"/>
+        <div class="alert alert-danger" *ngIf="addpublisherForm.get('publisherName').invalid
+          && addpublisherForm.get('publisherName').touched">
+          <div *ngIf="addpublisherForm.get('publisherName').errors.required">
+            Name is required
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="contactno">Contact</label>
+        <input type="tel" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && addpublisherForm.get('contactno').errors }"
+        placeholder="Contact" id="contactno" formControlName="contactno"/>
+        <div *ngIf="addpublisherForm.get('contactno').touched && addpublisherForm.get('contactno').invalid" class="alert alert-danger">
+          <div *ngIf="addpublisherForm.get('contactno').errors.required">Mobile Number is required.</div>
+          <div *ngIf="addpublisherForm.get('contactno').errors.pattern">Please, Enter 10 digit Mobile Number.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control"  id="email"
+        [ngClass]="{ 'is-invalid': submitted && addpublisherForm.get('email').errors }"
+        placeholder="Email" formControlName="email">
+        <div class="alert alert-danger" *ngIf="addpublisherForm.get('email').invalid
+        && addpublisherForm.get('email').touched">
+          Please enter a valid email
+       </div>
+      </div>
+      <div class="form-group">
+        <label for="address1">Address Line 1</label>
+        <input type="text" class="form-control"  id="address1"
+        [ngClass]="{ 'is-invalid': submitted && addpublisherForm.get('address1').errors}"
+        placeholder="Address line 1" formControlName="address1">
+        <div class="alert alert-danger" *ngIf="addpublisherForm.get('address1').invalid
+        && addpublisherForm.get('address1').touched">
+          Address is required
+       </div>
+      </div>
+      <div class="form-group">
+        <label for="address2">Address Line 2</label>
+        <input type="text" class="form-control"  id="address2"
+        [ngClass]="{ 'is-invalid': submitted && addpublisherForm.get('address2').errors}"
+        placeholder="Address line 2" formControlName="address2">
+        <div class="alert alert-danger" *ngIf="addpublisherForm.get('address2').invalid
+        && addpublisherForm.get('address2').touched">
+          Address is required
+       </div>
+      </div>
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" class="form-control"  id="city"
+        [ngClass]="{ 'is-invalid': submitted && addpublisherForm.get('city').errors}"
+        placeholder="City " formControlName="city">
+        <div class="alert alert-danger" *ngIf="addpublisherForm.get('city').invalid
+        && addpublisherForm.get('city').touched">
+          City is required
+       </div>
+      </div>
+      <div class="form-group">
+        <label for="state">State</label>
+        <input type="text" class="form-control"  id="state"
+        [ngClass]="{ 'is-invalid': submitted && addpublisherForm.get('state').errors}"
+        placeholder="State " formControlName="state">
+        <div class="alert alert-danger" *ngIf="addpublisherForm.get('state').invalid
+        && addpublisherForm.get('state').touched">
+          State is required
+       </div>
+      </div>
+      <div class="form-group">
+        <label for="pincode">Pincode</label>
+        <input type="text" class="form-control"  id="state"
+        [ngClass]="{ 'is-invalid': submitted && addpublisherForm.get('pincode').errors}"
+        placeholder="Pincode" formControlName="pincode">
+        <div class="alert alert-danger" *ngIf="addpublisherForm.get('pincode').invalid
+        && addpublisherForm.get('pincode').touched">
+          Pincode is required
+       </div>
+      </div>
+      <button type="submit" class="btn btn-success">Add Publisher</button>
+    </form>
+  </div>
+</div>

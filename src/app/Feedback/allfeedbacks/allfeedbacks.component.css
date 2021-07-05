@@ -1,0 +1,22 @@
+table{
+  background-color: white;
+  border-radius: 4px;
+}
+
+#search{
+  margin-right: 20px;
+  margin-bottom: 10px;
+  width: 30rem;
+}
+button{
+  margin-bottom: 8px;
+  padding: 2px;
+}
+form{
+  float: right;
+}
+.header{
+  color:white;
+  float: left;
+  margin-right: 20rem;
+}
