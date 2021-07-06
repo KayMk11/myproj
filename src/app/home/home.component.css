@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
 body{
   background: transparent;
   background-size: cover;
@@ -5,5 +6,13 @@ body{
   min-height: 90vh;
 }
 h1{
-  color: White;
+  color: black;
+}
+.container{
+  background-color: hsla(30, 55%, 68%,0.65);
+  height: 20vh;
+  display: flex;
+	align-items: center;
+	justify-content: center;
+  font-family: 'Playfair Display', serif;
 }

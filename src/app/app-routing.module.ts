@@ -1,3 +1,4 @@
+import { ViewfeedbacksComponent } from './User/viewfeedbacks/viewfeedbacks.component';
 import { UpdatepasswordComponent } from './User/updatepassword/updatepassword.component';
 import { AddfeedbackComponent } from './Feedback/addfeedback/addfeedback.component';
 import { UserMenuComponent } from './User/user-menu/user-menu.component';
@@ -52,7 +53,8 @@ const routes: Routes = [
   {path:'issuebook', component: BookissueComponent},
   {path:'addfeedback', component: AddfeedbackComponent},
   {path:'viewprofile', component: ViewprofileComponent},
-  {path:'updatepassword', component:UpdatepasswordComponent}
+  {path:'updatepassword', component:UpdatepasswordComponent},
+  {path:'viewfeedbacks', component:ViewfeedbacksComponent},
 
 ];
 

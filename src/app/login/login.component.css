@@ -36,22 +36,37 @@ body {
   background: transparent;
 }
 
-.form-group label {
-	display: inline-block;
-	margin-bottom: 5px;
-}
-
 .form-group input {
-	border-radius: 4px;
+  width: 100%;
+  padding: 10px;
+  height: 50px;
+  border-radius: 1.5rem;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 15px;
+  padding-left: 75px;
+	/* border-radius: 4px;
 	display: block;
 	font-family: inherit;
 	font-size: 14px;
 	padding: 10px;
-	width: 100%;
+	width: 100%; */
 }
 
 button {
-  background-color: rgb(46, 163, 241);
+  background: #45aba6;
+  padding: 11px 50px;
+  border-color: #45aba6;
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 20px;
+  border: 1px solid #45aba6;
+  border-radius: 44px;
+  width: 100%;
+  height: 56px;
+  cursor: pointer;
+  /* background-color: rgb(46, 163, 241);
 	border: 2px solid rgb(208, 229, 243);
 	border-radius: 4px;
 	color: #fff;
@@ -60,13 +75,25 @@ button {
 	font-size: 16px;
 	padding: 10px;
 	margin-top: 20px;
-	width: 100%;
+	width: 100%; */
 }
 
-.ng-invalid.ng-untouched:not(form)  {
-  border-left: 5px solid #18e622; /* green */
+/* .ng-invalid.ng-untouched:not(form)  {
+  border: 2px solid #18e622;
 }
 
 .ng-invalid.ng-touched:not(form)  {
-  border-left: 5px solid #e61511; /* red */
+  border: 2px solid #e61511;
+} */
+.form .form-group .input-icon {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  border-radius: 25px;
+  bottom: 0;
+  height: 100%;
+  padding-left: 25px;
+  padding-bottom: 1.25rem;
+  color: #666;
 }

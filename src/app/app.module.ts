@@ -32,6 +32,7 @@ import { BookissueComponent } from './User/bookissue/bookissue.component';
 import { AddfeedbackComponent } from './Feedback/addfeedback/addfeedback.component';
 import { ViewprofileComponent } from './User/viewprofile/viewprofile.component';
 import { UpdatepasswordComponent } from './User/updatepassword/updatepassword.component';
+import { ViewfeedbacksComponent } from './User/viewfeedbacks/viewfeedbacks.component';
 
 
 
@@ -63,7 +64,8 @@ import { UpdatepasswordComponent } from './User/updatepassword/updatepassword.co
     BookissueComponent,
     AddfeedbackComponent,
     ViewprofileComponent,
-    UpdatepasswordComponent
+    UpdatepasswordComponent,
+    ViewfeedbacksComponent
   ],
   imports: [
     BrowserModule,

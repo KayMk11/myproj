@@ -7,7 +7,7 @@
         <form [formGroup]="orderbook" (ngSubmit)="onSubmit()"  id="form" class="form">
           <div class="form-group">
             <label for="quantity">Quantity</label>
-            <input  class="form-control" placeholder="Quantity" id="quantity" type="number" formControlName="quantity"
+            <input class="form-control" placeholder="Quantity" id="quantity" type="number" formControlName="quantity"
             [ngClass]="{ 'is-invalid': submitted && orderbook.get('quantity').errors }"/>
             <div class="alert alert-danger" *ngIf="orderbook.get('quantity').invalid
               && orderbook.get('quantity').touched">

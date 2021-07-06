@@ -1,5 +1,7 @@
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { ConfirmPasswordValidator } from 'src/app/confirm-password.validator';
+
 
 @Component({
   selector: 'app-updatepassword',
@@ -9,14 +11,17 @@ import { Component, OnInit } from '@angular/core';
 export class UpdatepasswordComponent implements OnInit {
   updatepassword:FormGroup;
   submitted=false;
-  constructor() { }
+  constructor(private fb:FormBuilder) { }
 
   ngOnInit(): void {
-    this.updatepassword = new FormGroup({
-      password:new FormControl(null,[Validators.required]),
-      confirmpassword:new FormControl(null,[Validators.required])
-
-    })
+    this.updatepassword = this.fb.group({
+      password: new FormControl(null,[Validators.required]),
+      confirmpassword: new FormControl(null,[Validators.required])
+    },
+    {
+      validator: ConfirmPasswordValidator("password", "confirmpassword")
+    }
+    );
   }
   onSubmit(){
     this.submitted = true;

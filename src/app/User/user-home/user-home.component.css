@@ -1,25 +1,28 @@
 
 body{
   background: transparent;
-
+  display: flex;
 }
 h1{
-  color:white;
+  color:rgb(255, 255, 255);
   text-align: center;
-  font-size: 8rem;
+  font-size: 6rem;
 }
 p{
   color:black;
 }
 .container{
   background-color: #f3f1f1;
-  width:50%;
+  width: 40%;
   justify-content: flex-start;
   align-items: flex-start;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   padding: 1.5rem 2rem;
+  height: 15.625rem;
 }
 button{
   margin-right: 0.5rem;
 }
-
+.form-group input{
+  margin-bottom: 0.5rem;
+}

@@ -4,12 +4,81 @@
       <h2>User Profile</h2>
     </div>
     <div class="details">
-      <p>User ID: </p>
+      <p>User Name: </p>
       <p>First Name:</p>
       <p>Last Name:</p>
       <p>Mobile Number:</p>
       <p>Email:</p>
       <p>Date of Birth:</p>
     </div>
+    <div class="footer">
+      <button class="btn btn-primary" data-bs-toggle="modal"
+      data-bs-target="#profileModal">Update Profile</button>
+    </div>
   </body>
 </html>
+
+<!-- Modal form for update profile -->
+<div class="modal" id="profileModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Update Profile</h5>
+        <button type="button" class="btn-close" #closebutton data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="form-sm" [formGroup]="updateprofile" (ngSubmit)="onSubmit()">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" formControlName="firstName"
+             [ngClass]="{ 'is-invalid': submitted && updateprofile.get('firstName').errors }"/>
+             <div class="alert alert-danger" *ngIf="updateprofile.get('firstName').invalid
+              && updateprofile.get('firstName').touched">
+              <div *ngIf="updateprofile.get('firstName').errors.required">
+                First Name is required
+              </div>
+            </div>
+          </div>
+         <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" formControlName="lastName"
+              [ngClass]="{ 'is-invalid': submitted && updateprofile.get('lastName').errors }"/>
+            <div class="alert alert-danger" *ngIf="updateprofile.get('lastName').invalid
+              && updateprofile.get('lastName').touched">
+              <div *ngIf="updateprofile.get('lastName').errors.required">
+                Last Name is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mobileno">Mobile</label>
+            <input type="tel" class="form-control" id="mobileno" formControlName="mobileno"
+            [ngClass]="{ 'is-invalid': submitted && updateprofile.get('mobileno').errors }"/>
+            <div *ngIf="updateprofile.get('mobileno').touched && updateprofile.get('mobileno').invalid" class="alert alert-danger">
+              <div *ngIf="updateprofile.get('mobileno').errors.required">Mobile Number is required.</div>
+              <div *ngIf="updateprofile.get('mobileno').errors.pattern">Please, Enter 10 digit Mobile Number.</div>
+          </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email"
+              formControlName="email" [ngClass]="{ 'is-invalid': submitted && updateprofile.get('email').errors }"/>
+              <div class="alert alert-danger" *ngIf="updateprofile.get('email').invalid
+                && updateprofile.get('email').touched">
+              Please enter a valid email
+        </div>
+          </div>
+          <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" class="form-control" id="dob"
+              formControlName="dob"/>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Update</button>
+          <button type="button" class="btn btn-danger">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

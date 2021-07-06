@@ -10,6 +10,7 @@ import { UserAddress } from 'src/app/models/useraddress.model';
 export class UserHomeComponent implements OnInit {
   addaddress:FormGroup;
   viewaddress:FormGroup;
+  updateaddress:FormGroup;
   submitted = false;
   @ViewChild('closebutton') closebutton: { nativeElement: { click: () => void; }; };
   constructor() { }

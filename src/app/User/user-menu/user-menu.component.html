@@ -19,8 +19,15 @@
                 <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/suggestbook']"  href="#">Suggest Book</a></li>
               </ul>
             </li>
-            <li class="nav-item" routerLinkActive="active">
-              <a class="nav-link" [routerLink]="['/addfeedback']" href="#">Feedback</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Feedback
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/addfeedback']" href="#">Give Feedback</a></li>
+                <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/viewfeedbacks']" href="#">View Feedbacks</a></li>
+
+              </ul>
             </li>
             <li class="nav-item" routerLinkActive="active">
               <a class="nav-link" [routerLink]="['/allauthor']" href="#">Authors</a>

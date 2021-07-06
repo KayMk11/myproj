@@ -14,5 +14,11 @@ body{
 }
 
 .details{
-  padding: 1rem;
+  padding: 1.5rem 2rem;
+}
+.footer{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-bottom: 1rem;
 }
