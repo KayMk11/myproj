@@ -11,8 +11,7 @@ form{
   float: right;
 }
 .header{
-  color:black;
+  color:white;
   float: left;
   margin-right: 20rem;
-  background-color: hsla(30, 25%, 86%,0.65);
 }

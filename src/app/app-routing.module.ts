@@ -1,3 +1,4 @@
+import { BooksborrowedComponent } from './User/booksborrowed/booksborrowed.component';
 import { ViewfeedbacksComponent } from './User/viewfeedbacks/viewfeedbacks.component';
 import { UpdatepasswordComponent } from './User/updatepassword/updatepassword.component';
 import { AddfeedbackComponent } from './Feedback/addfeedback/addfeedback.component';
@@ -55,6 +56,8 @@ const routes: Routes = [
   {path:'viewprofile', component: ViewprofileComponent},
   {path:'updatepassword', component:UpdatepasswordComponent},
   {path:'viewfeedbacks', component:ViewfeedbacksComponent},
+  {path:'borrowedbooks', component:BooksborrowedComponent}
+
 
 ];
 

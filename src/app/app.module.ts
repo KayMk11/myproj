@@ -33,6 +33,7 @@ import { AddfeedbackComponent } from './Feedback/addfeedback/addfeedback.compone
 import { ViewprofileComponent } from './User/viewprofile/viewprofile.component';
 import { UpdatepasswordComponent } from './User/updatepassword/updatepassword.component';
 import { ViewfeedbacksComponent } from './User/viewfeedbacks/viewfeedbacks.component';
+import { BooksborrowedComponent } from './User/booksborrowed/booksborrowed.component';
 
 
 
@@ -65,7 +66,8 @@ import { ViewfeedbacksComponent } from './User/viewfeedbacks/viewfeedbacks.compo
     AddfeedbackComponent,
     ViewprofileComponent,
     UpdatepasswordComponent,
-    ViewfeedbacksComponent
+    ViewfeedbacksComponent,
+    BooksborrowedComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="search">
     <form [formGroup]="issueBooks">
-      <h2 class="header">Issue a Book</h2>
+      <h2 class="header">All Books</h2>
       <input type="text" id="search" placeholder="Search" class="col-lg-10" formControlName="searchText">
       <button type="submit" class="btn btn-primary">Search</button>
       <!-- Book search part will be at this point only -->
@@ -73,13 +73,13 @@
               formControlName="returnDate"/>
           </div>
           <div class="form-group">
-            <label for="status">User</label>
+            <label for="status">Status</label>
             <input type="text" class="form-control" id="status"  placeholder="Status"
              formControlName="status">
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Add</button>
+          <button type="button" class="btn btn-primary">Issue</button>
           <button type="button" class="btn btn-danger">Close</button>
         </div>
       </form>
