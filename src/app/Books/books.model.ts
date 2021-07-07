@@ -1,4 +1,3 @@
-
 export class Books
 {
   bookId:number;
@@ -11,5 +10,4 @@ export class Books
 	quantity:number;
 	shelfDetails:string;
 	bookCost:number;
-
 }

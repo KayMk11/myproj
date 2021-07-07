@@ -8,6 +8,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class ViewprofileComponent implements OnInit {
   updateprofile:FormGroup;
+  addaddress:FormGroup;
+  viewaddress:FormGroup;
+  updateaddress:FormGroup;
   submitted=false;
   @ViewChild('closebutton') closebutton: { nativeElement: { click: () => void; }; };
   constructor(private fb:FormBuilder) { }

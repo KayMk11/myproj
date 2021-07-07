@@ -22,3 +22,9 @@ body{
   display: flex;
   margin-bottom: 1rem;
 }
+.footer button{
+  margin: 0.25rem;
+}
+.form-group input{
+  margin-bottom: 0.5rem;
+}

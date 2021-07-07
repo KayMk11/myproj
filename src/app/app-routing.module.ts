@@ -27,10 +27,12 @@ import { AddauthorComponent } from './Author/addauthor/addauthor.component';
 import { AllauthorsComponent } from './Author/allauthors/allauthors.component';
 import { BookissueComponent } from './User/bookissue/bookissue.component';
 import { ViewprofileComponent } from './User/viewprofile/viewprofile.component';
+import { AuthguardService } from './Services/authguard.service';
 
 const routes: Routes = [
+  {path:'', redirectTo: '/home', pathMatch:'full'},
   {path:'home', component: HomeComponent},
-  {path:'signup', component: SignUpComponent},
+  {path:'signup', component: SignUpComponent,},
   {path:'login', component: LoginComponent},
   {path:'adminmenu', component:AdminMenuComponent},
   {path:'adminhome', component: AdminHomeComponent},
@@ -49,8 +51,9 @@ const routes: Routes = [
   {path:'addauthor', component:AddauthorComponent},
   {path:'allauthor', component:AllauthorsComponent},
 
+  {path:'', redirectTo: '/userhome', pathMatch:'full'},
   {path:'usermenu', component: UserMenuComponent},
-  {path:'userhome', component: UserHomeComponent},
+  {path:'userhome', component: UserHomeComponent, canActivate:[AuthguardService]},
   {path:'issuebook', component: BookissueComponent},
   {path:'addfeedback', component: AddfeedbackComponent},
   {path:'viewprofile', component: ViewprofileComponent},

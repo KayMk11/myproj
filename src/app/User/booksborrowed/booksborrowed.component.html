@@ -9,29 +9,17 @@
   </div>
 
   <table class="table table-sm table-bordered table-striped">
-    <tr>
-      <th>BookId</th>
-      <th>Title</th>
-      <th>Subject</th>
-      <th>Author Id</th>
-      <th>Publisher Id</th>
-      <th>Published Year</th>
-      <th>ISBN</th>
-      <th>Quantity</th>
-      <th>Shelf Details</th>
-      <th>BookCost</th>
+    <tr class="thead">
+      <th>Book</th>
+      <th>Issue Date</th>
+      <th>Return Date</th>
+      <th>Status</th>
     </tr>
-    <tr *ngFor='let book of books'>
-      <td>{{book.bookId}}</td>
-      <td>{{book.title}}</td>
-      <td>{{book.subject}}</td>
-      <td>{{book.authorIdList}}</td>
-      <td>{{book.publisherId}}</td>
-      <td>{{book.publishedYear}}</td>
-      <td>{{book.isbn}}</td>
-      <td>{{book.quantity}}</td>
-      <td>{{book.shelfDetails}}</td>
-      <td>{{book.bookCost}}</td>
+    <tr *ngFor='let bookborrow of booksborrowed'>
+      <td>{{bookborrow.book}}</td>
+      <td>{{bookborrow.issueDate}}</td>
+      <td>{{bookborrow.returnDate}}</td>
+      <td>{{bookborrow.status}}</td>
       <td>
         <button class="btn btn-danger btn-sm ml-2" data-bs-toggle="modal"
           data-bs-target="#returnModal">Return</button>

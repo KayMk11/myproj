@@ -8,11 +8,6 @@ import { UserAddress } from 'src/app/models/useraddress.model';
   styleUrls: ['./user-home.component.css']
 })
 export class UserHomeComponent implements OnInit {
-  addaddress:FormGroup;
-  viewaddress:FormGroup;
-  updateaddress:FormGroup;
-  submitted = false;
-  @ViewChild('closebutton') closebutton: { nativeElement: { click: () => void; }; };
   constructor() { }
 
   ngOnInit(): void {

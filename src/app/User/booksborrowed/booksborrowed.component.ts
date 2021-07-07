@@ -1,6 +1,6 @@
+import { Bookissue } from './../../models/bookissue.model';
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Books } from 'src/app/Books/books.model';
 
 @Component({
   selector: 'app-booksborrowed',
@@ -8,7 +8,7 @@ import { Books } from 'src/app/Books/books.model';
   styleUrls: ['./booksborrowed.component.css']
 })
 export class BooksborrowedComponent implements OnInit {
-  books:Books[];
+  booksborrowed:Bookissue[];
   borrowedBooks:FormGroup;
   constructor() { }
 
