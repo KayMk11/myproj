@@ -44,7 +44,6 @@ body {
   border: 1px solid #ccc;
   box-sizing: border-box;
   font-size: 15px;
-  padding-left: 75px;
 	/* border-radius: 4px;
 	display: block;
 	font-family: inherit;
@@ -85,15 +84,3 @@ button {
 .ng-invalid.ng-touched:not(form)  {
   border: 2px solid #e61511;
 } */
-.form .form-group .input-icon {
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  position: absolute;
-  border-radius: 25px;
-  bottom: 0;
-  height: 100%;
-  padding-left: 25px;
-  padding-bottom: 1.25rem;
-  color: #666;
-}

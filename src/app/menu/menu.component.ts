@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/Services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  currentUser: any;
 
-  constructor() { }
-
+  constructor(private authservice:AuthService) {
+  }
   ngOnInit(): void {
   }
 
+  isLoggedIn(){
+  //  return sessionStorage.getItem('roles') !== null;
+    return this.authservice.isLoggedIn();
+  }
+
+  logout(){
+    this.authservice.logout()
+  }
+
+  isUser(){
+    return this.currentUser.authority == "ROLE_USER";
+  }
+
+  isAdmin(){
+    return this.currentUser.authority == "ROLE_ADMIN";
+  }
 }

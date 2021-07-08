@@ -8,9 +8,13 @@ import { UserAddress } from 'src/app/models/useraddress.model';
   styleUrls: ['./user-home.component.css']
 })
 export class UserHomeComponent implements OnInit {
+  token: string
+  roles: string
   constructor() { }
 
   ngOnInit(): void {
+    this.roles = sessionStorage.getItem('roles')
+    this.token = sessionStorage.getItem('token')
   }
   onSubmit(){
   }

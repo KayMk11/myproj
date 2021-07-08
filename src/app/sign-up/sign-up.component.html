@@ -100,6 +100,9 @@
             </select>
           </div> -->
           <button type="submit" [disabled]="signupForm.invalid"  class="btn btn-success">Sign up</button>
+          <div class="alert alert-success" *ngIf="isRegistered">
+            Signed Up  successfully!
+          </div>
         </form>
       </div>
     </div>

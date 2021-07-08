@@ -35,8 +35,7 @@ import { UpdatepasswordComponent } from './User/updatepassword/updatepassword.co
 import { ViewfeedbacksComponent } from './User/viewfeedbacks/viewfeedbacks.component';
 import { BooksborrowedComponent } from './User/booksborrowed/booksborrowed.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthService } from './Services/auth.service';
-import { AuthguardService } from './Services/authguard.service';
+
 import { AuthInterceptor } from './Services/authInterceptor.service';
 
 

@@ -1,3 +1,4 @@
+import { MenuComponent } from './menu/menu.component';
 import { BooksborrowedComponent } from './User/booksborrowed/booksborrowed.component';
 import { ViewfeedbacksComponent } from './User/viewfeedbacks/viewfeedbacks.component';
 import { UpdatepasswordComponent } from './User/updatepassword/updatepassword.component';
@@ -27,13 +28,14 @@ import { AddauthorComponent } from './Author/addauthor/addauthor.component';
 import { AllauthorsComponent } from './Author/allauthors/allauthors.component';
 import { BookissueComponent } from './User/bookissue/bookissue.component';
 import { ViewprofileComponent } from './User/viewprofile/viewprofile.component';
-import { AuthguardService } from './Services/authguard.service';
+
 
 const routes: Routes = [
   {path:'', redirectTo: '/home', pathMatch:'full'},
-  {path:'home', component: HomeComponent},
-  {path:'signup', component: SignUpComponent,},
+  {path:'signup', component: SignUpComponent},
   {path:'login', component: LoginComponent},
+  {path:'home', component: HomeComponent},
+  {path:'menu', component: MenuComponent},
   {path:'adminmenu', component:AdminMenuComponent},
   {path:'adminhome', component: AdminHomeComponent},
   {path:'addbook', component:AddbookComponent},
@@ -51,17 +53,15 @@ const routes: Routes = [
   {path:'addauthor', component:AddauthorComponent},
   {path:'allauthor', component:AllauthorsComponent},
 
-  {path:'', redirectTo: '/userhome', pathMatch:'full'},
-  {path:'usermenu', component: UserMenuComponent},
-  {path:'userhome', component: UserHomeComponent, canActivate:[AuthguardService]},
+  // User
+  {path:'usermenu', component: UserMenuComponent },
+  {path:'userhome', component: UserHomeComponent},
   {path:'issuebook', component: BookissueComponent},
-  {path:'addfeedback', component: AddfeedbackComponent},
+  {path:'addfeedback', component: AddfeedbackComponent },
   {path:'viewprofile', component: ViewprofileComponent},
   {path:'updatepassword', component:UpdatepasswordComponent},
   {path:'viewfeedbacks', component:ViewfeedbacksComponent},
   {path:'borrowedbooks', component:BooksborrowedComponent}
-
-
 ];
 
 @NgModule({
@@ -69,3 +69,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

@@ -16,7 +16,7 @@ export class AddbookComponent implements OnInit {
     this.addbookForm = new FormGroup({
       title: new FormControl(null, [Validators.required]),
       subject: new FormControl(null, [Validators.required]),
-      publisherYear: new FormControl(null, [Validators.required]),
+      publishedYear: new FormControl(null, [Validators.required]),
       publisherId: new FormControl(null, [Validators.required]),
       isbn: new FormControl(null, [Validators.required]),
       quantity: new FormControl(null, [Validators.required]),
@@ -31,7 +31,6 @@ export class AddbookComponent implements OnInit {
       return;
     }
     alert('Book added successfully');
-
     this.addbookForm.reset();
   }
 

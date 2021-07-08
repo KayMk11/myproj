@@ -1,11 +1,9 @@
 *{
   box-sizing: border-box;
-  height:100%;
-}
-body{
   background: url('src/app/menu/images/pexels-janko-ferlic-590493.jpg') no-repeat center fixed;
   background-size: cover;
   background-size: 100%;
+  min-height: 7vh;
 }
 .nav-link{
   color: whitesmoke;

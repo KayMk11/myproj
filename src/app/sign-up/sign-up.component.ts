@@ -16,6 +16,7 @@ export class SignUpComponent implements OnInit {
   user:Users = new Users(null,'','','','',null,'',null,[]);
   selectedRoles: string[];
   submitted = false;
+  isRegistered = false;
   constructor(private authService: AuthService) {
   }
 
@@ -37,7 +38,6 @@ export class SignUpComponent implements OnInit {
     if (this.signupForm.invalid) {
       return;
     }
-    alert('Successfully Signed Up');
 
     this.user.userName = this.signupForm.value.username
     this.user.password = this.signupForm.value.password
@@ -55,6 +55,7 @@ export class SignUpComponent implements OnInit {
   save() {
     this.authService.signup(this.user).subscribe(user => {
         console.log(user);
+        this.isRegistered = true;
     }, error => {
         console.log(error);
     });
