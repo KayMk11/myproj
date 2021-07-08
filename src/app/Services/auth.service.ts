@@ -43,8 +43,9 @@ export class AuthService {
       })));
   }
   isLoggedIn(): boolean{
-    return sessionStorage.getItem('username') !== null;
+    return sessionStorage.getItem('roles') !== null;
   }
+
   logout(){
     sessionStorage.clear();
   }

@@ -24,10 +24,10 @@ export class MenuComponent implements OnInit {
   }
 
   isUser(){
-    return this.currentUser.authority == "ROLE_USER";
+    return sessionStorage.getItem('roles') == '["ROLE_USER"]';
   }
 
   isAdmin(){
-    return this.currentUser.authority == "ROLE_ADMIN";
+    return sessionStorage.getItem('roles') == '["ROLE_ADMIN"]';
   }
 }

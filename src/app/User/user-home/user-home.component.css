@@ -1,5 +1,5 @@
 
-body{
+*{
   background: transparent;
 }
 h1{
@@ -10,6 +10,7 @@ h1{
 p{
   color:black;
 }
+
 .container{
   background-color: #f3f1f1;
   width: 40%;
@@ -18,6 +19,7 @@ p{
   border-radius: 1.25rem;
   padding: 1.5rem 2rem;
 }
+
 button{
   margin-right: 0.5rem;
 }

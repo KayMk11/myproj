@@ -36,7 +36,7 @@ const routes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'home', component: HomeComponent},
   {path:'menu', component: MenuComponent},
-  {path:'adminmenu', component:AdminMenuComponent},
+  // {path:'adminmenu', component:AdminMenuComponent},
   {path:'adminhome', component: AdminHomeComponent},
   {path:'addbook', component:AddbookComponent},
   {path:'displayallbooks', component: DisplayallBooksComponent},
@@ -54,7 +54,7 @@ const routes: Routes = [
   {path:'allauthor', component:AllauthorsComponent},
 
   // User
-  {path:'usermenu', component: UserMenuComponent },
+  // {path:'usermenu', component: UserMenuComponent },
   {path:'userhome', component: UserHomeComponent},
   {path:'issuebook', component: BookissueComponent},
   {path:'addfeedback', component: AddfeedbackComponent },

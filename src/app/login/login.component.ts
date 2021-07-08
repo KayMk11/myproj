@@ -46,10 +46,10 @@ export class LoginComponent implements OnInit {
   navigateTo() {
     switch (sessionStorage.getItem('roles')) {
       case '["ROLE_USER"]':
-        this.router.navigate(['menu']);
+        this.router.navigate(['userhome']);
         break;
       case '["ROLE_ADMIN"]':
-        this.router.navigate(['menu']);
+        this.router.navigate(['adminhome']);
         break;
       default:
         this.isLoggedin = false;

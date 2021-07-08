@@ -1,6 +1,7 @@
 table{
   background-color: white;
   border-radius: 0.25rem;
+  margin-right: 5rem;
 }
 
 #search{
@@ -8,18 +9,26 @@ table{
   margin-bottom: 0.625rem;
   width: 30rem;
 }
+
 button{
   margin-bottom: 0.5rem;
   padding: 0.125rem;
 }
+
 form{
   float: right;
+  margin-right: 2rem;
 }
+
 .header{
   color:white;
   float: left;
-  margin-right: 23rem;
+  margin-left: 2rem;
 }
+
 .thead{
   text-align: center;
+}
+th{
+  width: 0.5rem;
 }
