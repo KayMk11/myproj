@@ -8,33 +8,33 @@ const headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
   providedIn: 'root'
 })
 export class PublisherService {
-  private baseUrl = 'http://localhost:8080/Publisher';
-  constructor(private httpclient:HttpClient) { }
+  private baseUrl = 'http://localhost:8080/publisher';
+  constructor(private httpclient: HttpClient) { }
 
-  addPublisher(publisher:Publisher): Observable<Publisher>{
-    console.log(publisher)
-    return this.httpclient.post<Publisher>(`${this.baseUrl}/add`, publisher,{headers})
+  addPublisher(publ: Publisher): Observable<Publisher> {
+    console.log(publ)
+    return this.httpclient.post<Publisher>(`${this.baseUrl}/add`, publ, { headers })
   }
 
-  getAllPublishers(){
+  getAllPublishers(): Observable<Publisher[]> {
     return this.httpclient.get<Publisher[]>(`${this.baseUrl}/all`)
-    .pipe(catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
-  deletePublisher(publisherId: number):Observable<{}>{
+  deletePublisher(publisherId: number): Observable<{}> {
     return this.httpclient.delete(`${this.baseUrl}/delete/${publisherId}`)
-    .pipe(catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
-  updatePublisher(publisher:Publisher){
+  updatePublisher(publisher: Publisher) {
     console.log(publisher);
-    return this.httpclient.put(`${this.baseUrl}/update`, publisher,{headers})
-    .pipe(catchError(this.handleError));
+    return this.httpclient.put(`${this.baseUrl}/update`, publisher, { headers })
+      .pipe(catchError(this.handleError));
   }
 
-  getPublisherById(publisherId: number){
-    return this.httpclient.get<Publisher>(`${this.baseUrl}/${publisherId}`,{headers})
-    .pipe(catchError(this.handleError));
+  getPublisherById(publisherId: number) {
+    return this.httpclient.get<Publisher>(`${this.baseUrl}/${publisherId}`, { headers })
+      .pipe(catchError(this.handleError));
   }
 
   private handleError(httpError: HttpErrorResponse) {

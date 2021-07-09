@@ -8,8 +8,8 @@ import { Books } from '../books.model';
   styleUrls: ['./displayall-books.component.css']
 })
 export class DisplayallBooksComponent implements OnInit {
-  searchBooks:FormGroup;
-  books:Books[]=[];
+  searchBooks: FormGroup;
+  books: Books[] = [];
   constructor() { }
 
   ngOnInit(): void {

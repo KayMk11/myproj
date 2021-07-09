@@ -26,38 +26,22 @@ export class AllauthorsComponent implements OnInit {
 
   search() {
     this.searchQuery = this.searchAuthor.value.searchText;
-
+    console.log(this.searchQuery);
     if (this.searchQuery === '')
       this.getAuthorsAll();
+    else if (!isNaN(Number(this.searchQuery)))
+      this.getAuthorById(Number(this.searchQuery))
     else if (this.searchQuery[0] === '+') {
       // search sw
-      this.searchQuery = this.searchQuery.substring(1);
-      this.authorService.searchNamesw(this.searchQuery).subscribe(
-        data => {
-          this.authors = data;
-          console.log(data);
-        }
-      );
+      this.searchStartsWith(this.searchQuery.substring(1))
     }
     else if (this.searchQuery[this.searchQuery.length - 1] === '+') {
       // search ew
-      this.searchQuery = this.searchQuery.substring(0, this.searchQuery.length - 1);
-      console.log(this.searchQuery);
-      this.authorService.searchNameew(this.searchQuery).subscribe(
-        data => {
-          this.authors = data;
-          console.log(data);
-        }
-      );
+      this.searchEndsWith(this.searchQuery.substring(0, this.searchQuery.length - 1))
     }
     else {
       // search normal
-      this.authorService.searchNameLike(this.searchQuery).subscribe(
-        data => {
-          this.authors = data;
-          console.log(this.authors);
-        }
-      );
+      this.searchContain(this.searchQuery)
     }
   }
 
@@ -68,5 +52,35 @@ export class AllauthorsComponent implements OnInit {
       }
     );
   }
-
+  private searchStartsWith(query: string) {
+    this.authorService.searchNamesw(query).subscribe(
+      data => {
+        this.authors = data;
+        console.log(data);
+      }
+    );
+  }
+  private searchEndsWith(query: string) {
+    this.authorService.searchNameew(query).subscribe(
+      data => {
+        this.authors = data;
+        console.log(data);
+      }
+    );
+  }
+  private searchContain(query: string) {
+    this.authorService.searchNameLike(this.searchQuery).subscribe(
+      data => {
+        this.authors = data;
+        console.log(this.authors);
+      }
+    );
+  }
+  private getAuthorById(id: number) {
+    this.authorService.getAuthorById(id).subscribe(
+      data => {
+        this.authors = [data];
+      }
+    );
+  }
 }

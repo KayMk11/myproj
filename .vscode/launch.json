@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "edge",
+            "request": "launch",
+            "name": "Launch edge against localhost",
+            // "preLaunchTask": "ng start",
+            "url": "http://127.0.0.1:4200/",
+            "webRoot": "${workspaceFolder}",
+            "runtimeExecutable": "/usr/bin/microsoft-edge-dev",
+            "runtimeArgs": [
+                "--new-window",
+                "-user-data-dir=\"/${workspaceFolder}/DevProfile\"",
+                "--remote-debugging-port=2015",
+                "--disable-background-networking"
+            ]
+        }
+    ]
+}

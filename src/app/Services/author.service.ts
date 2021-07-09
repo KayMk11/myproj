@@ -12,6 +12,9 @@ export class AuthorService {
   getAuthorsAll(): Observable<Author[]> {
     return this.httpclient.get<Author[]>(this.baseURL + 'search/all')
   }
+  getAuthorById(id: number): Observable<Author> {
+    return this.httpclient.get<Author>(this.baseURL + 'search/' + id)
+  }
   searchNameLike(query: string): Observable<Author[]> {
     return this.httpclient.get<Author[]>(this.baseURL + 'search/name/contains/' + query)
   }
