@@ -11,50 +11,59 @@ import { AuthService } from '../Services/auth.service';
 
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  submitted:boolean=false;
+  submitted: boolean = false;
   errorMessage = '';
   isLoggedin = false;
   isLoginFailed = false;
-  constructor(private fb:FormBuilder, private authService: AuthService, private router: Router) { }
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      username: new FormControl(null, [Validators.required, Validators.minLength(5),Validators.maxLength(10)]),
-      password: new FormControl(null,[Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,20}$'),
+      username: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]),
+      password: new FormControl(null, [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,20}$'),
       Validators.minLength(8), Validators.maxLength(20)])
     });
   }
 
-  onSubmit(){
+  onSubmit() {
     this.submitted = true;
 
     this.authService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe(
-      data=>{
+      data => {
         this.isLoggedin = true
         this.navigateTo()
+        console.log("logged in");
+        console.log(sessionStorage.getItem('roles'));
       },
-      error=>{
+      error => {
         console.log(error);
         this.errorMessage = error;
         this.isLoggedin = false;
         this.isLoginFailed = true;
-    }
+      }
     );
 
   }
 
   navigateTo() {
-    switch (sessionStorage.getItem('roles')) {
-      case '["ROLE_USER"]':
-        this.router.navigate(['userhome']);
-        break;
-      case '["ROLE_ADMIN"]':
-        this.router.navigate(['adminhome']);
-        break;
-      default:
-        this.isLoggedin = false;
-        this.router.navigate(['home']);
-        break;
+    // switch (sessionStorage.getItem('roles')) {
+    //   case '["ROLE_USER","ROLE_ADMIN"]':
+    //     break;
+    //   case '["ROLE_ADMIN"]':
+    //     this.router.navigate(['adminhome']);
+    //     break;
+    //   case '["ROLE_USER"]':
+    //     break;
+    //   default:
+    //     break;
+    // }
+    if (sessionStorage.getItem('roles').includes('ROLE_ADMIN'))
+      this.router.navigate(['adminhome']);
+    else if (sessionStorage.getItem('roles').includes('ROLE_USER'))
+      this.router.navigate(['userhome']);
+    else {
+      this.isLoggedin = false;
+      this.router.navigate(['home']);
     }
   }
 }

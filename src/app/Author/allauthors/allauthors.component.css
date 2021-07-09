@@ -1,34 +1,36 @@
-table{
+table {
   background-color: white;
   border-radius: 0.25rem;
   margin-right: 5rem;
+  /* align-self: center; */
 }
 
-#search{
+#search {
   margin-right: 1.25rem;
   margin-bottom: 0.625rem;
   width: 30rem;
 }
 
-button{
+button {
   margin-bottom: 0.5rem;
   padding: 0.125rem;
 }
 
-form{
+form {
   float: right;
   margin-right: 2rem;
 }
 
-.header{
-  color:white;
+.header {
+  color: white;
   float: left;
   margin-left: 2rem;
 }
 
-.thead{
+.thead {
   text-align: center;
 }
-th{
+
+th {
   width: 0.5rem;
 }

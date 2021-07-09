@@ -9,25 +9,25 @@ import { Component, OnInit } from '@angular/core';
 export class MenuComponent implements OnInit {
   currentUser: any;
 
-  constructor(private authservice:AuthService) {
+  constructor(private authservice: AuthService) {
   }
   ngOnInit(): void {
   }
 
-  isLoggedIn(){
-  //  return sessionStorage.getItem('roles') !== null;
+  isLoggedIn() {
+    //  return sessionStorage.getItem('roles') !== null;
     return this.authservice.isLoggedIn();
   }
 
-  logout(){
+  logout() {
     this.authservice.logout()
   }
 
-  isUser(){
+  isUser() {
     return sessionStorage.getItem('roles') == '["ROLE_USER"]';
   }
 
-  isAdmin(){
-    return sessionStorage.getItem('roles') == '["ROLE_ADMIN"]';
+  isAdmin() {
+    return sessionStorage.getItem('roles').includes('ROLE_ADMIN');
   }
 }
