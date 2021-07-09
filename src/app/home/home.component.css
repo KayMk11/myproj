@@ -1,18 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
-body{
-  background: transparent;
-  background-size: cover;
-  text-align: center;
-  min-height: 100vh;
-}
+
 h1{
   color: black;
+
 }
 .container{
-  background-color: hsla(30, 55%, 68%,0.65);
+  background-color: hsla(30, 55%, 68%, 0.65);
   height: 20vh;
-  display: flex;
-	align-items: center;
-	justify-content: center;
+  text-align: center;
   font-family: 'Playfair Display', serif;
+  top: 20%;
+  position: absolute;
+  left: 8%;
 }

@@ -1,18 +1,22 @@
 
-body{
-  background: transparent;
-}
+
 h1{
   color:white;
   text-align: center;
   font-size: 8rem;
+  top: 15%;
+  left: 20%;
+  position: absolute;
 }
 p{
-  color:black;
+  color:white;
 }
 .container{
   background-color: #f3f1f1;
   width:50%;
   justify-content: flex-start;
   align-items: flex-start;
+  position: absolute;
+  top: 40%;
+  left: 20%;
 }

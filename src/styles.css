@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  background: url('src/app/menu/images/pexels-janko-ferlic-590493.jpg') no-repeat center fixed;
+  min-height: 100vh;
+  background-size: cover;
+}

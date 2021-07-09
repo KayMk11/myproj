@@ -1,3 +1,4 @@
+import { Users } from './../../models/users.model';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
@@ -12,6 +13,8 @@ export class ViewprofileComponent implements OnInit {
   viewaddress:FormGroup;
   updateaddress:FormGroup;
   submitted=false;
+
+  user:Users;
   @ViewChild('closebutton') closebutton: { nativeElement: { click: () => void; }; };
   constructor(private fb:FormBuilder) { }
 
@@ -20,10 +23,10 @@ export class ViewprofileComponent implements OnInit {
       firstName: new FormControl(null, [Validators.required]),
       lastName: new FormControl(null, [Validators.required]),
       mobileno: new FormControl(null, [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-      email: new FormControl(null, [Validators.required, Validators.email])
-
-    })
-  }
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      dob:new FormControl(null,[Validators.required])
+      })
+    }
   onSubmit(){
     this.submitted = true;
     if (this.updateprofile.invalid) {

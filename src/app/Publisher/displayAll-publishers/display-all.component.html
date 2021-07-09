@@ -1,13 +1,49 @@
+<div class="row" *ngIf="deleteMsg !== ''">
+  <div class="alert alert-info alert-dismissible">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      {{ deleteMsg }}
+  </div>
+</div>
+
 <div class="row">
   <div class="search">
-    <form [formGroup]="searchPublisher">
-      <h2 class="header">All Publishers</h2>
-      <input type="text" id="search" placeholder="Search" class="col-lg-10" formControlName="searchText">
-      <button type="submit" class="btn btn-primary">Search</button>
+    <h2 class="header">All Publishers</h2>
+    <form [formGroup]="publisherSearchForm">
+      <input type="text" id="search" placeholder="Search" class="col-lg-10" formControlName="publisherId">
+      <button type="submit" (click)="onSearch()" class="btn btn-primary">Search</button>
     </form>
+    <table class="table table-sm table-bordered table-striped" *ngIf="isSearched">
+      <tr class="head">
+        <th>publisherId</th>
+        <th>Publisher Name</th>
+        <th>Contact No</th>
+        <th>Email</th>
+        <th>Address1</th>
+        <th>Address2</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Pincode</th>
+      </tr>
+      <tr >
+        <td>{{searchPublisher.publisherId}}</td>
+        <td>{{searchPublisher.publisherName}}</td>
+        <td>{{searchPublisher.contactNo}}</td>
+        <td>{{searchPublisher.email}}</td>
+        <td>{{searchPublisher.address1}}</td>
+        <td>{{searchPublisher.address2}}</td>
+        <td>{{searchPublisher.city}}</td>
+        <td>{{searchPublisher.state}}</td>
+        <td>{{searchPublisher.pincode}}</td>
+
+          <button class="btn btn-success btn-sm" (click)="onClickUpdate(searchPublisher.publisherId)"
+            data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
+          <button class="btn btn-danger btn-sm ml-2" (click)="onClickDelete(searchPublisher.publisherId)">Delete</button>
+
+      </tr>
+    </table>
   </div>
-  <table class="table table-sm table-bordered table-striped">
-    <tr>
+  <table class="table table-sm table-bordered table-striped" *ngIf="!allPublisher">
+    <tr class="head">
       <th>publisherId</th>
       <th>Publisher Name</th>
       <th>Contact No</th>
@@ -18,21 +54,83 @@
       <th>State</th>
       <th>Pincode</th>
     </tr>
-    <tr *ngFor='let publisher of publishers'>
-      <td>{{publisher.publisherId}}</td>
-      <td>{{publisher.publisherName}}</td>
-      <td>{{publisher.contactNo}}</td>
-      <td>{{publisher.email}}</td>
-      <td>{{publisher.address1}}</td>
-      <td>{{publisher.address2}}</td>
-      <td>{{publisher.city}}</td>
-      <td>{{publisher.state}}</td>
-      <td>{{publisher.pincode}}</td>
-      <td>
-        <button class="btn btn-success btn-sm"
+    <tr *ngFor="let pub of publishers">
+      <td>{{pub.publisherId}}</td>
+      <td>{{pub.publisherName}}</td>
+      <td>{{pub.contactNo}}</td>
+      <td>{{pub.email}}</td>
+      <td>{{pub.address1}}</td>
+      <td>{{pub.address2}}</td>
+      <td>{{pub.city}}</td>
+      <td>{{pub.state}}</td>
+      <td>{{pub.pincode}}</td>
+
+        <button class="btn btn-success btn-sm" (click)="onClickUpdate(pub.publisherId)"
           data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
-        <button class="btn btn-danger btn-sm ml-2">Delete</button>
-      </td>
+        <button class="btn btn-danger btn-sm ml-2" (click)="onClickDelete(pub.publisherId)">Delete</button>
+
     </tr>
   </table>
+</div>
+<div class="modal" id="updateModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Update Publisher</h5>
+        <button type="button" class="btn-close" #closebutton data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="form-sm" [formGroup]="publisherUpdateForm" >
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="publisherId">Publisher ID</label>
+            <input type="number" class="form-control"
+             placeholder="Publisher ID" id="publisherId" formControlName="publisherId"/>
+          </div>
+          <div class="form-group">
+            <label for="publisherName">Name</label>
+            <input type="text" class="form-control"
+             placeholder="Publisher Name" id="publisherName" formControlName="publisherName"/>
+          </div>
+         <div class="form-group">
+            <label for="contactNo">Contact</label>
+            <input type="text" class="form-control" id="contactNo"  placeholder="Contact"
+             formControlName="contactNo">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email"  placeholder="Email"
+             formControlName="email">
+          </div>
+          <div class="form-group">
+            <label for="address1">Address Line 1</label>
+            <input type="text" class="form-control" id="address1"  placeholder="address1"
+              formControlName="address1"/>
+          </div>
+          <div class="form-group">
+            <label for="address2">Address Line 2</label>
+            <input type="text" class="form-control" id="address2"  placeholder="address2"
+              formControlName="address2"/>
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city"  placeholder="city"
+              formControlName="city"/>
+          </div>
+          <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" class="form-control" id="state" placeholder="State"
+              formControlName="state"/>
+          </div>
+          <div class="form-group">
+            <label for="pincode">Pincode</label>
+            <input type="text" class="form-control" id="pincode" placeholder="pincode"
+              formControlName="pincode"/>
+          </div>
+        </div>
+      </form>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary"  data-bs-dismiss="modal" (click)="onSubmit()">Update</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,10 +1,9 @@
-<html>
-  <body>
+
     <div class="container">
       <div class="row">
         <div class="header"><h2>Sign Up</h2></div>
-        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()"  id="form" class="form">
-          <div class="form-group">
+        <form  [formGroup]="signupForm" (ngSubmit)="onSubmit()"  id="form" class="form">
+          <div class="form-group ">
             <label for="username">Username</label>
             <input type="text" class="form-control"
              [ngClass]="{ 'is-invalid': submitted && signupForm.get('username').errors }"
@@ -106,5 +105,4 @@
         </form>
       </div>
     </div>
-  </body>
-</html>
+

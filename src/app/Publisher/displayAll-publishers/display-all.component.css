@@ -1,6 +1,7 @@
 table{
   background-color: white;
   border-radius: 4px;
+  margin-left: 2rem;
 }
 
 #search{
@@ -14,9 +15,16 @@ button{
 }
 form{
   float: right;
+  margin-right: 2rem;
 }
 .header{
   color:white;
   float: left;
-  margin-right: 20rem;
+  margin-left: 2rem;
+}
+.head{
+  text-align: center;
+}
+td{
+  text-align: center;
 }

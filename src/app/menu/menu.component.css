@@ -1,21 +1,17 @@
-*{
-  box-sizing: border-box;
-  background: url('src/app/menu/images/pexels-janko-ferlic-590493.jpg') no-repeat center fixed;
-  background-size: cover;
-  min-height: 7vh;
-}
 
 .nav-link{
-  color: whitesmoke;
+  color: white;
   font-family: sans-serif;
 }
 
 .dropdown-menu {
   background: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
-  position: fixed;
 }
 .dropdown-menu > li >a {
   background: rgb(255, 255, 255);
   color: rgb(5, 5, 5);
 }
+/* nav{
+  background-color: hsla(30, 7%, 95%,0.5);
+} */

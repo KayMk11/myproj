@@ -27,10 +27,7 @@ export class AddbookComponent implements OnInit {
   }
   onSubmit(){
     this.submitted = true;
-    if (this.addbookForm.invalid) {
-      return;
-    }
-    alert('Book added successfully');
+    
     this.addbookForm.reset();
   }
 

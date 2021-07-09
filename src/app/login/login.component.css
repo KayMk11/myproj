@@ -1,14 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap');
-body {
-	background-size: cover;
-	font-family: 'Open Sans', sans-serif;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 90vh;
-	margin: 0;
-  background: transparent;
-}
+
 .header {
 	border-bottom: 2px solid black;
 	padding: 20px 40px;
@@ -25,6 +16,10 @@ body {
 	overflow: hidden;
 	width: 400px;
 	max-width: 100%;
+  top: 20%;
+  position: absolute;
+  left: 25%;
+  right: 25%;
 }
 
 
