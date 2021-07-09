@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg" >
+<div class="image">
+  <nav class="navbar navbar-expand-lg" >
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navbarNav">
         <div *ngIf="!isLoggedIn()">
@@ -24,7 +25,7 @@
             <li class="nav-item" routerLinkActive="active">
               <a class="nav-link" [routerLink]="['/viewprofile']" href="#">View Profile</a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown ">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Books
               </a>
@@ -61,7 +62,7 @@
             <li class="nav-item" routerLinkActive="active">
               <a class="nav-link" [routerLink]="['/adminhome']" href="#"><b>Home</b></a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown ">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Books
               </a>
@@ -128,6 +129,7 @@
       </div>
     </div>
   </nav>
+</div>
 <div>
   <router-outlet></router-outlet>
 </div>

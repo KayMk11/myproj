@@ -1,28 +1,16 @@
-body{
-  background-color: rgba(231, 246, 250,0.80);
-  border-radius: 20px;
-  overflow: hidden;
-	width: 500px;
-	max-width: 100%;
-}
 
-.header{
-  border-bottom: 0.125rem solid black;
-  padding: 20px 40px;
+.container{
+  background-color: rgba(231, 246, 250, 0.80);
+  padding: 1.25rem 40px;
   color: black;
   font-family: 'Open Sans', sans-serif;
+  border-radius: 1.25rem;
+  width: 500px;
 }
-
 .details{
-  padding: 1.5rem 2rem;
+  padding: 1rem 0.5rem;
 }
-.footer{
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  margin-bottom: 1rem;
-}
-.footer button{
+button{
   margin: 0.25rem;
 }
 .form-group input{

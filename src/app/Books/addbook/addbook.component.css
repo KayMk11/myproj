@@ -1,14 +1,6 @@
-body {
-	background-size: cover;
-	font-family: 'Open Sans', sans-serif;
-	display: flex;
-	align-items:center;
-	justify-content:center;
-	min-height: 100vh;
-  background: transparent;
-}
+
 .header {
-	border-bottom: 2px solid #050505;
+	border-bottom: 2px solid black;
 	padding: 20px 40px;
   color: black;
   font-family: 'Open Sans', sans-serif;
@@ -18,15 +10,15 @@ body {
 }
 .container {
   background-color: rgba(231, 246, 250, 0.65);
-	border-radius: 20px;
-	box-shadow: 10px 50px 60px rgba(0, 0, 0, 0.3);
-	overflow: hidden;
+	border-radius: 1.5625rem;
 	width: 500px;
-	max-width: 100%;
+  top: 15%;
+  position: absolute;
+  left: 25%;
+  right: 25%;
 }
 .form-group{
-	margin-bottom: 0.5rem;
-	padding-bottom: 0.5rem;
+	margin-bottom: 10px;
 	position: relative;
   color:black;
   background: transparent;
