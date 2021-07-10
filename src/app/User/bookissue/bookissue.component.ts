@@ -8,14 +8,14 @@ import { Books } from 'src/app/Books/books.model';
   styleUrls: ['./bookissue.component.css']
 })
 export class BookissueComponent implements OnInit {
-  issueBooks:FormGroup;
-  books:Books[];
+  issueBooks: FormGroup;
+  books: Books[];
   @ViewChild('closebutton') closebutton: { nativeElement: { click: () => void; }; };
   constructor() { }
 
   ngOnInit(): void {
   }
-  onSubmit(){
+  onSubmit() {
 
   }
 

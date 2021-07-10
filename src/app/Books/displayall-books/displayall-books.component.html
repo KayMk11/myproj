@@ -1,7 +1,7 @@
 <div class="row">
   <div class="search">
     <h2 class="header">All Books</h2>
-    <form [formGroup]="searchBooks">
+    <form [formGroup]="searchBooks" (keyup)="search()">
       <input type="text" id="search" placeholder="Search" class="col-lg-10" formControlName="searchText">
       <button type="submit" class="btn btn-primary">Search</button>
     </form>
@@ -12,8 +12,8 @@
       <th>BookId</th>
       <th>Title</th>
       <th>Subject</th>
-      <th>Author Id</th>
-      <th>Publisher Id</th>
+      <th>Author</th>
+      <th>Publisher</th>
       <th>Published Year</th>
       <th>ISBN</th>
       <th>Quantity</th>
@@ -24,16 +24,15 @@
       <td>{{book.bookId}}</td>
       <td>{{book.title}}</td>
       <td>{{book.subject}}</td>
-      <td>{{book.authorIdList}}</td>
-      <td>{{book.publisherId}}</td>
+      <td><span *ngFor='let author of book.authors'>{{author.firstName + ' ' + author.lastName}}</span></td>
+      <td>{{book.publisher.publisherName}}</td>
       <td>{{book.publishedYear}}</td>
       <td>{{book.isbn}}</td>
       <td>{{book.quantity}}</td>
       <td>{{book.shelfDetails}}</td>
       <td>{{book.bookCost}}</td>
       <td>
-        <button class="btn btn-success btn-sm"
-          data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
+        <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
         <button class="btn btn-danger btn-sm ml-2">Delete</button>
       </td>
     </tr>

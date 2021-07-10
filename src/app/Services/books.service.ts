@@ -1,9 +1,65 @@
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { Books } from '../Books/books.model';
 
+const headers = new HttpHeaders().set('Content-Type', 'application/json');
 @Injectable({
   providedIn: 'root'
 })
 export class BooksService {
   private baseURL = 'http://localhost:8080/book'
-  constructor() { }
+  constructor(private httpclient: HttpClient) { }
+
+  getAllBooks(): Observable<Books[]> {
+    return this.httpclient.get<Books[]>(`${this.baseURL}/search/all`)
+      .pipe(catchError(this.handleError))
+  }
+  getBooksNameLike(query: string): Observable<Books[]> {
+    return this.httpclient.get<Books[]>(`${this.baseURL}/search/title/contains/${query}`)
+      .pipe(catchError(this.handleError))
+  }
+  getBooksNameStartsWith(query: string): Observable<Books[]> {
+    return this.httpclient.get<Books[]>(`${this.baseURL}/search/title/startswith/${query}`)
+      .pipe(catchError(this.handleError))
+  }
+  getBooksNameEndsWith(query: string): Observable<Books[]> {
+    return this.httpclient.get<Books[]>(`${this.baseURL}/search/title/endswith/${query}`)
+      .pipe(catchError(this.handleError))
+  }
+  getBooksBySubject(query: string): Observable<Books[]> {
+    return this.httpclient.get<Books[]>(`${this.baseURL}/search/subject/${query}`)
+      .pipe(catchError(this.handleError))
+  }
+
+  addBook(book: Books) {
+    console.log(book)
+    // console.log(`${this.baseURL}/add`)
+    this.httpclient.post<Books>(`${this.baseURL}/add`, book, { headers }).subscribe(
+      res => {
+        console.log(res)
+      }
+    )
+    // .pipe(catchError(this.handleError))
+  }
+  deleteBook(bookId: number) {
+    return this.httpclient.delete(`${this.baseURL}/delete/${bookId}`)
+      .pipe(catchError(this.handleError))
+  }
+  updateBook(book: Books) {
+    return this.httpclient.put(`${this.baseURL}/update`, book)
+      .pipe(catchError(this.handleError))
+  }
+
+  private handleError(httpError: HttpErrorResponse) {
+    if (httpError.error instanceof ErrorEvent) {
+      console.error('An error occurred:', httpError.error.message);
+    } else {
+      console.error(
+        `Backend returned code ${httpError.status}, ` +
+        `body was: ${httpError.error}`);
+    }
+    return throwError('Something bad happened; Give correct data');
+  }
 }
