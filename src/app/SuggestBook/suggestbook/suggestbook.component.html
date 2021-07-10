@@ -3,15 +3,13 @@
       <div class="row">
         <div class="header"><h2>Suggest a Book</h2></div>
         <form [formGroup]="suggestbook" (ngSubmit)="onSubmit()"  id="form" class="form">
-          <div class="form-group">
-            <!-- User ID will be pre filled -->
+          <!-- <div class="form-group">
             <label for="userid">User ID:</label>
             <input  class="form-control" placeholder="User ID" id="userid" type="text" formControlName="userid"/>
-          </div>
+          </div> -->
           <div class="form-group">
             <label for="title">Title</label>
-            <input  class="form-control" placeholder="Title" id="title" type="text" formControlName="title"
-            [ngClass]="{ 'is-invalid': submitted && suggestbook.get('title').errors }"/>
+            <input class="form-control"  placeholder="Title" id="title" type="text" formControlName="title"/>
             <div class="alert alert-danger" *ngIf="suggestbook.get('title').invalid
               && suggestbook.get('title').touched">
               <div *ngIf="suggestbook.get('title').errors.required">
@@ -21,8 +19,7 @@
           </div>
           <div class="form-group">
             <label for="subject">Subject</label>
-            <input  class="form-control" placeholder="Subject" id="subject" type="text" formControlName="subject"
-            [ngClass]="{ 'is-invalid': submitted && suggestbook.get('subject').errors }"/>
+            <input  class="form-control" placeholder="Subject" id="subject" type="text" formControlName="subject"/>
             <div class="alert alert-danger" *ngIf="suggestbook.get('subject').invalid
               && suggestbook.get('subject').touched">
               <div *ngIf="suggestbook.get('subject').errors.required">
@@ -31,9 +28,8 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="Author">Author</label>
-            <input  class="form-control" placeholder="Author" id="author" type="text" formControlName="author"
-            [ngClass]="{ 'is-invalid': submitted && suggestbook.get('author').errors }"/>
+            <label for="author">Author</label>
+            <input  class="form-control" placeholder="Author" id="author" type="text" formControlName="author"/>
             <div class="alert alert-danger" *ngIf="suggestbook.get('author').invalid
               && suggestbook.get('author').touched">
               <div *ngIf="suggestbook.get('author').errors.required">
@@ -43,14 +39,21 @@
           </div>
           <div class="form-group">
             <label for="description">Description</label>
-            <textarea class="form-control" name="description" id="description" placeholder="Description" cols="25" rows="4" formControlName="description"></textarea>
+            <textarea class="form-control" name="description" id="description"
+             placeholder="write a description" cols="25" rows="4" formControlName="description"></textarea>
+             <div class="alert alert-danger" *ngIf="suggestbook.get('description').invalid
+              && suggestbook.get('description').touched">
+              <div *ngIf="suggestbook.get('description').errors.required">
+                Description is required
+              </div>
+            </div>
           </div>
           <!-- <div class="form-group">
              Suggestion Date will be the current Date
             <label for="suggestdate">Suggestion Date </label>
             <input type="date" class="form-control" id="suggestdate" formControlName="suggestdate">
           </div> -->
-          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="submit" [disabled]="suggestbook.invalid" class="btn btn-success">Submit</button>
         </form>
       </div>
 </div>

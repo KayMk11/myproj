@@ -1,38 +1,31 @@
 import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
+import { DamagedBook } from './../models/damagedBook.model';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Publisher } from '../models/publisher.model';
-
-
 @Injectable({
   providedIn: 'root'
 })
-export class PublisherService {
-  private baseUrl = 'http://localhost:8080/Publisher';
+export class DamagedBooksService {
+  private baseUrl = 'http://localhost:8080/damagedbooks';
   constructor(private httpclient:HttpClient) { }
 
-  addPublisher(publisher:Publisher): Observable<Publisher>{
-    console.log(publisher)
-    return this.httpclient.post<Publisher>(`${this.baseUrl}/add`, publisher)
-  }
-
-  getAllPublishers(){
-    return this.httpclient.get<Publisher[]>(`${this.baseUrl}/all`)
+  addDamagedBook(damagedbook:DamagedBook): Observable<DamagedBook>{
+    return this.httpclient.post<DamagedBook>(`${this.baseUrl}/add`, damagedbook,)
     .pipe(catchError(this.handleError));
   }
 
-  deletePublisher(publisherId: number):Observable<{}>{
-    return this.httpclient.delete(`${this.baseUrl}/delete/${publisherId}`)
+  getAllDamagedBooks(){
+    return this.httpclient.get<DamagedBook[]>(`${this.baseUrl}/get/all`)
     .pipe(catchError(this.handleError));
   }
 
-  updatePublisher(publisher:Publisher): Observable<any>{
-    return this.httpclient.put<any>(`${this.baseUrl}/update`, publisher);
+  deleteDamagedBook(id:number):Observable<{}>{
+    return this.httpclient.delete(`${this.baseUrl}/remove/${id}`)
+    .pipe(catchError(this.handleError));
   }
-
-  getPublisherById(publisherId:number){
-    return this.httpclient.get<Publisher>(`${this.baseUrl}/${publisherId}`)
+  getDamagedBookById(id:number){
+    return this.httpclient.get<DamagedBook>(`${this.baseUrl}/get/${id}`)
     .pipe(catchError(this.handleError));
   }
 

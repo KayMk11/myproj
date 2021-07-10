@@ -1,18 +1,19 @@
 <div class="row">
   <h2 class="header">All Feedbacks</h2>
-  <table class="table table-sm table-bordered table-striped">
-    <tr class="thead">
+  <table class="table table-sm table-bordered ">
+    <tr class="head">
       <th>Feedback Id</th>
       <th>Feedback Date</th>
       <th>Title</th>
       <th>Description</th>
       <th>Status</th>
     </tr>
-    <tr *ngFor='let feedback of viewfeedbacks'>
-      <td>{{feedback.feedbackid}}</td>
-      <td>{{feedback.feedbackDate}}</td>
-      <td>{{feedback.title}}</td>
-      <td>{{feedback.description}}</td>
+    <tr *ngFor='let feed of viewfeedbacks'>
+      <td>{{feed.feedbackid}}</td>
+      <td>{{feed.feedbackDate}}</td>
+      <td>{{feed.title}}</td>
+      <td>{{feed.description}}</td>
+      <td>{{feed.status}}</td>
     </tr>
   </table>
 </div>

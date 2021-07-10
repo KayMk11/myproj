@@ -1,6 +1,8 @@
 table{
   background-color: white;
-  border-radius: 4px;
+  border-radius: 0.625rem;
+  margin-left: 2rem;
+  width: 90%;
 }
 
 button{
@@ -9,12 +11,16 @@ button{
 }
 form{
   float: right;
+  margin-right: 2rem;
 }
 .header{
   color:white;
   float: left;
-  margin-right: 20rem;
+  margin-left: 2rem;
 }
-.thead{
+.head{
+  text-align: center;
+}
+td{
   text-align: center;
 }

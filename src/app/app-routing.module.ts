@@ -3,7 +3,6 @@ import { BooksborrowedComponent } from './User/booksborrowed/booksborrowed.compo
 import { ViewfeedbacksComponent } from './User/viewfeedbacks/viewfeedbacks.component';
 import { UpdatepasswordComponent } from './User/updatepassword/updatepassword.component';
 import { AddfeedbackComponent } from './Feedback/addfeedback/addfeedback.component';
-import { UserMenuComponent } from './User/user-menu/user-menu.component';
 import { UserHomeComponent } from './User/user-home/user-home.component';
 import { AllordersComponent } from './Orderbooks/allorders/allorders.component';
 import { AddorderComponent } from './Orderbooks/addorder/addorder.component';
@@ -13,7 +12,6 @@ import { AllsuggestedbooksComponent } from './SuggestBook/allsuggestedbooks/alls
 import { SuggestbookComponent } from './SuggestBook/suggestbook/suggestbook.component';
 import { DisplayallDamagedbooksComponent } from './DamagedBook/displayall-damagedbooks/displayall-damagedbooks.component';
 import { AddDamagedbookComponent } from './DamagedBook/add-damagedbook/add-damagedbook.component';
-import { AdminMenuComponent } from './Admin/admin-menu/admin-menu.component';
 import { AdminHomeComponent } from './Admin/admin-home/admin-home.component';
 import { BooksearchComponent } from './Books/booksearch/booksearch.component';
 import { DisplayallBooksComponent } from './Books/displayall-books/displayall-books.component';
@@ -36,7 +34,6 @@ const routes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'home', component: HomeComponent},
   {path:'menu', component: MenuComponent},
-  // {path:'adminmenu', component:AdminMenuComponent},
   {path:'adminhome', component: AdminHomeComponent},
   {path:'addbook', component:AddbookComponent},
   {path:'displayallbooks', component: DisplayallBooksComponent},

@@ -8,5 +8,6 @@ export class Publisher{
 	city:string;
 	state:string;
 	pincode:string;
+  value: any;
   constructor(){}
 }

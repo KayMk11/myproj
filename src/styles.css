@@ -2,5 +2,5 @@
 body{
   background: url('src/app/menu/images/pexels-janko-ferlic-590493.jpg') no-repeat center fixed;
   min-height: 100vh;
-  background-size: cover;
+  background-size: 100%;
 }

@@ -1,6 +1,8 @@
-import { Users } from './../../models/users.model';
+import { UserAddress } from './../../models/useraddress.model';
+import { User } from './../../models/users.model';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-viewprofile',
@@ -13,10 +15,16 @@ export class ViewprofileComponent implements OnInit {
   viewaddress:FormGroup;
   updateaddress:FormGroup;
   submitted=false;
+  address:UserAddress;
+  user:User;
 
-  user:Users;
   @ViewChild('closebutton') closebutton: { nativeElement: { click: () => void; }; };
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder, private userservice:UserService) {
+    this.userservice.getUserDetails(this.user).subscribe(data=>{
+      console.log(this.user)
+      this.user = data;
+    })
+   }
 
   ngOnInit(): void {
     this.updateprofile = this.fb.group({
@@ -25,12 +33,31 @@ export class ViewprofileComponent implements OnInit {
       mobileno: new FormControl(null, [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
       email: new FormControl(null, [Validators.required, Validators.email]),
       dob:new FormControl(null,[Validators.required])
-      })
-    }
+    })
+    this.addaddress = this.fb.group({
+      addressLine1: new FormControl(null, [Validators.required]),
+      addressLine2: new FormControl(null, [Validators.required]),
+      city: new FormControl(null, [Validators.required]),
+      state: new FormControl(null, [Validators.required])
+    })
+  }
+
   onSubmit(){
     this.submitted = true;
     if (this.updateprofile.invalid) {
       return;
     }
+    this.address.addressLine1 = this.addaddress.value.addressLine1;
+    this.address.addressLine2 = this.addaddress.value.addressLine2;
+    this.address.city = this.addaddress.value.city;
+    this.address.state = this.addaddress.value.state;
+
+  }
+
+  add(){
+    this.userservice.addAddress(this.address).subscribe(addr =>{
+      console.log(addr);
+    },
+  error=>console.log(error))
   }
 }

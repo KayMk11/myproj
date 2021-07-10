@@ -1,4 +1,4 @@
-import { HttpHeaders } from '@angular/common/http';
+
 import { PublisherService } from './../../Services/publisher.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -10,35 +10,30 @@ import { Publisher } from 'src/app/models/publisher.model';
   styleUrls: ['./display-all.component.css']
 })
 export class DisplayAllComponent implements OnInit {
-  searchPublisher : Publisher;
+  searchPublisher : FormGroup;
   publishers: Publisher[];
   publisher: Publisher;
   updatePublisher:FormGroup;
-  deleteMsg:string = '';
+  message:string = '';
   allPublisher = false;
   isSearched = false
-  
+  isUpdated=false;
   @ViewChild('closebutton') closebutton: { nativeElement: { click: () => void; }; };
   constructor(private publisherservie:PublisherService) {
-    this.publisherservie.getAllPublishers().subscribe(data =>{
-      console.log(data);
-      this.publishers = data;
-  })
+    this.getAllPublishers();
+    this.searchPublisher = new FormGroup({
+      publisherId: new FormControl()
+    })
    }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {  }
 
   onClickDelete(publisherId:number){
     this.publisherservie.deletePublisher(publisherId)
     .subscribe(data=>{
-      this.deleteMsg = 'Publisher Deleted Successfully!!';
-      this.publisherservie.getAllPublishers().subscribe(data=>{
-        this.publishers = data;
-      })
-    },error=>{
-      this.deleteMsg = error
-    });
+      this.message = 'Publisher Deleted Successfully!!';
+      this.getAllPublishers();
+    })
   }
   publisherUpdateForm = new FormGroup({
     publisherId: new FormControl({value:'', disabled:true}),
@@ -86,26 +81,31 @@ export class DisplayAllComponent implements OnInit {
     publisher.city = this.publisherUpdateForm.value.city;
     publisher.state = this.publisherUpdateForm.value.state;
     publisher.pincode = this.publisherUpdateForm.value.pincode;
-
+    console.log(publisher);
     this.publisherservie.updatePublisher(publisher).subscribe(data=>{
-      this.publisherservie.getAllPublishers().subscribe(e=>{
-       this.publishers = e;
-      })
-    },
-    error=> console.log(error));
+      this.message=JSON.stringify(data)
+      this.getAllPublishers();
+    })
 
   }
 
-  publisherSearchForm=new FormGroup({
-    publisherId :new FormControl('',[Validators.required])});
-
-    onSearch(){
-      this.publisherservie.getPublisherById(this.publisherSearchForm.value.publisherId).subscribe(
-        data=>{
-          this.allPublisher=true;
-          this.isSearched=true;
-          this.searchPublisher = data;
-          console.log(this.publisher);
-        },error=>{})
+   onSearch() {
+    console.log(this.searchPublisher.value.publisherId);
+    if (this.searchPublisher.value.publisherId === '')
+      this.getAllPublishers();
+    else {
+      this.publisherservie.getPublisherById(this.searchPublisher.value.publisherId).subscribe(
+        data => {
+          this.allPublisher = true;
+          this.isSearched = true;
+          this.publishers = [data];
+        }, error => { })
     }
+  }
+
+  getAllPublishers() {
+    this.publisherservie.getAllPublishers().subscribe(data => {
+      this.publishers = data;
+    })
+  }
 }

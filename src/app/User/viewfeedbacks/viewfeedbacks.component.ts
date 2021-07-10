@@ -1,3 +1,5 @@
+
+import { FeedbackService } from './../../Services/feedback.service';
 import { Component, OnInit } from '@angular/core';
 import { Feedback } from 'src/app/models/feedback.model';
 
@@ -8,9 +10,15 @@ import { Feedback } from 'src/app/models/feedback.model';
 })
 export class ViewfeedbacksComponent implements OnInit {
   viewfeedbacks:Feedback[];
-  constructor() { }
+
+  constructor(private feedbackservice:FeedbackService) {
+    this.feedbackservice.viewfeedbackbyUser().subscribe(data=>{
+      this.viewfeedbacks = data
+    })
+  }
 
   ngOnInit(): void {
   }
 
+ 
 }
