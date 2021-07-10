@@ -1,7 +1,7 @@
-<div class="row" *ngIf="deleteMsg !== ''">
+<div class="row" *ngIf="message !== ''">
   <div class="alert alert-info alert-dismissible">
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    {{ deleteMsg }}
+    {{ message }}
   </div>
 </div>
 
@@ -13,7 +13,7 @@
       <button type="submit" class="btn btn-primary">Search</button>
     </form>
   </div>
-  <table class="table table-sm table-bordered table-striped" *ngIf="!allPublisher">
+  <table class="table table-sm table-bordered table-striped">
     <tr class="head">
       <th>publisherId</th>
       <th>Publisher Name</th>

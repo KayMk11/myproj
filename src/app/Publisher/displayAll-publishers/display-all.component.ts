@@ -1,4 +1,4 @@
-import { HttpHeaders } from '@angular/common/http';
+
 import { PublisherService } from './../../Services/publisher.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -14,32 +14,26 @@ export class DisplayAllComponent implements OnInit {
   publishers: Publisher[];
   publisher: Publisher;
   updatePublisher: FormGroup;
-  deleteMsg: string = '';
+  message: string = '';
   allPublisher = false;
   isSearched = false
-
-  constructor(private publisherservie: PublisherService) { }
+  isUpdated = false;
   @ViewChild('closebutton') closebutton: { nativeElement: { click: () => void; }; };
-
-  // }
-
-  ngOnInit(): void {
+  constructor(private publisherservie: PublisherService) {
     this.getAllPublishers();
     this.searchPublisher = new FormGroup({
       publisherId: new FormControl()
     })
   }
 
+  ngOnInit(): void { }
+
   onClickDelete(publisherId: number) {
     this.publisherservie.deletePublisher(publisherId)
       .subscribe(data => {
-        this.deleteMsg = 'Publisher Deleted Successfully!!';
-        this.publisherservie.getAllPublishers().subscribe(data => {
-          this.publishers = data;
-        })
-      }, error => {
-        this.deleteMsg = error
-      });
+        this.message = 'Publisher Deleted Successfully!!';
+        this.getAllPublishers();
+      })
   }
   publisherUpdateForm = new FormGroup({
     publisherId: new FormControl({ value: '', disabled: true }),
@@ -86,14 +80,11 @@ export class DisplayAllComponent implements OnInit {
     publisher.city = this.publisherUpdateForm.value.city;
     publisher.state = this.publisherUpdateForm.value.state;
     publisher.pincode = this.publisherUpdateForm.value.pincode;
-
-    // console.log(this.publisher);
+    console.log(publisher);
     this.publisherservie.updatePublisher(publisher).subscribe(data => {
-      this.publisherservie.getAllPublishers().subscribe(e => {
-        this.publishers = e;
-      })
-    },
-      error => console.log(error));
+      this.message = JSON.stringify(data)
+      this.getAllPublishers();
+    })
 
   }
 
@@ -104,17 +95,16 @@ export class DisplayAllComponent implements OnInit {
     else {
       this.publisherservie.getPublisherById(this.searchPublisher.value.publisherId).subscribe(
         data => {
-          // this.allPublisher = true;
-          // this.isSearched = true;
+          this.allPublisher = true;
+          this.isSearched = true;
           this.publishers = [data];
-          console.log(this.publisher);
         }, error => { })
     }
   }
-  private getAllPublishers() {
+
+  getAllPublishers() {
     this.publisherservie.getAllPublishers().subscribe(data => {
       this.publishers = data;
-      console.log(this.publishers);
     })
   }
 }

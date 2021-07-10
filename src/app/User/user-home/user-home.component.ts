@@ -10,6 +10,7 @@ import { UserAddress } from 'src/app/models/useraddress.model';
 export class UserHomeComponent implements OnInit {
   token: string
   roles: string
+  username:string
   constructor() { }
 
   ngOnInit(): void {

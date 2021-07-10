@@ -1,24 +1,25 @@
 table {
   background-color: white;
-  border-radius: 0.25rem;
-  margin-right: 5rem;
-  /* align-self: center; */
+  border-radius: 0.625rem;
+  margin-left: 5rem;
+  width: 80rem;
 }
 
 #search {
   margin-right: 1.25rem;
-  margin-bottom: 0.625rem;
+  margin-bottom: 10px;
   width: 30rem;
 }
 
 button {
-  margin-bottom: 0.5rem;
-  padding: 0.125rem;
+  margin-bottom: 8px;
+  padding: 2px;
+  margin-right: 2rem;
 }
 
 form {
   float: right;
-  margin-right: 2rem;
+  margin-right: 5rem;
 }
 
 .header {
@@ -27,10 +28,14 @@ form {
   margin-left: 2rem;
 }
 
-.thead {
+.head {
   text-align: center;
 }
 
-th {
-  width: 0.5rem;
+td {
+  text-align: center;
+}
+
+.row {
+  width: 100%;
 }

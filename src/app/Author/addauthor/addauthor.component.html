@@ -6,7 +6,6 @@
       <div class="form-group">
         <label for="firstName">Name</label>
         <input type="text" class="form-control"
-         [ngClass]="{ 'is-invalid': submitted && addauthorForm.get('firstName').errors }"
          placeholder="First Name" id="firstName" formControlName="firstName"/>
         <div class="alert alert-danger" *ngIf="addauthorForm.get('firstName').invalid
           && addauthorForm.get('firstName').touched">
@@ -19,7 +18,6 @@
       <div class="form-group">
         <label for="lastName">last Name</label>
         <input type="text" class="form-control"  id="lastName"
-        [ngClass]="{ 'is-invalid': submitted && addauthorForm.get('lastName').errors}"
         placeholder="Address line 1" formControlName="lastName">
         <div class="alert alert-danger" *ngIf="addauthorForm.get('lastName').invalid
         && addauthorForm.get('lastName').touched">
@@ -30,7 +28,6 @@
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" class="form-control"  id="email"
-        [ngClass]="{ 'is-invalid': submitted && addauthorForm.get('email').errors }"
         placeholder="Email" formControlName="email">
         <div class="alert alert-danger" *ngIf="addauthorForm.get('email').invalid
         && addauthorForm.get('email').touched">
@@ -39,17 +36,16 @@
       </div>
 
       <div class="form-group">
-        <label for="contactno">Contact</label>
+        <label for="contactNo">Contact</label>
         <input type="tel" class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && addauthorForm.get('contactno').errors }"
-        placeholder="Contact" id="contactno" formControlName="contactno"/>
-        <div *ngIf="addauthorForm.get('contactno').touched && addauthorForm.get('contactno').invalid" class="alert alert-danger">
-          <div *ngIf="addauthorForm.get('contactno').errors.required">Mobile Number is required.</div>
-          <div *ngIf="addauthorForm.get('contactno').errors.pattern">Please, Enter 10 digit Mobile Number.</div>
+        placeholder="Contact" id="contactNo" formControlName="contactNo"/>
+        <div *ngIf="addauthorForm.get('contactNo').touched && addauthorForm.get('contactNo').invalid" class="alert alert-danger">
+          <div *ngIf="addauthorForm.get('contactNo').errors.required">Mobile Number is required.</div>
+          <div *ngIf="addauthorForm.get('contactNo').errors.pattern">Please, Enter 10 digit Mobile Number.</div>
         </div>
       </div>
 
-      <button type="submit" class="btn btn-success">Add Author</button>
+      <button type="submit" [disabled]="addauthorForm.invalid" class="btn btn-success">Add Author</button>
     </form>
   </div>
 </div>

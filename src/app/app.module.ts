@@ -13,7 +13,6 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { DisplayallBooksComponent } from './Books/displayall-books/displayall-books.component';
 import { BooksearchComponent } from './Books/booksearch/booksearch.component';
 import { AdminHomeComponent } from './Admin/admin-home/admin-home.component';
-import { AdminMenuComponent } from './Admin/admin-menu/admin-menu.component';
 import { AddPublisherComponent } from './Publisher/add-publisher/add-publisher.component';
 import { DisplayAllComponent } from './Publisher/displayAll-publishers/display-all.component';
 import { AddDamagedbookComponent } from './DamagedBook/add-damagedbook/add-damagedbook.component';
@@ -26,7 +25,6 @@ import { AddorderComponent } from './Orderbooks/addorder/addorder.component';
 import { AllordersComponent } from './Orderbooks/allorders/allorders.component';
 import { AddauthorComponent } from './Author/addauthor/addauthor.component';
 import { AllauthorsComponent } from './Author/allauthors/allauthors.component';
-import { UserMenuComponent } from './User/user-menu/user-menu.component';
 import { UserHomeComponent } from './User/user-home/user-home.component';
 import { BookissueComponent } from './User/bookissue/bookissue.component';
 import { AddfeedbackComponent } from './Feedback/addfeedback/addfeedback.component';
@@ -50,7 +48,6 @@ import { AuthInterceptor } from './Services/authInterceptor.service';
     DisplayallBooksComponent,
     BooksearchComponent,
     AdminHomeComponent,
-    AdminMenuComponent,
     AddPublisherComponent,
     DisplayAllComponent,
     AddDamagedbookComponent,
@@ -63,7 +60,6 @@ import { AuthInterceptor } from './Services/authInterceptor.service';
     AllordersComponent,
     AddauthorComponent,
     AllauthorsComponent,
-    UserMenuComponent,
     UserHomeComponent,
     BookissueComponent,
     AddfeedbackComponent,

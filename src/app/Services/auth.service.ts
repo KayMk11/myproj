@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Users } from '../models/users.model';
+import { User } from '../models/users.model';
 const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
 @Injectable({
@@ -12,26 +12,26 @@ const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
 export class AuthService {
   private baseUrl = 'http://localhost:8080/auth/';
-  private currentUserSubject: BehaviorSubject<Users>;
-  public currentUser: Observable<Users>;
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
   public name:string;
 
   constructor(private http: HttpClient,  private router: Router){
-    this.currentUserSubject = new BehaviorSubject<Users>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
-  public get currentUserValue(): Users {
+  public get currentUserValue(): User {
     return this.currentUserSubject.value;
   }
 
-  signup(user: Users): Observable<any>{
-    return this.http.post<Users>(this.baseUrl + 'signup', user);
+  signup(user: User): Observable<any>{
+    return this.http.post<User>(this.baseUrl + 'signup', user);
   }
 
   login(username: string, password: string) {
     this.name = username;
     return this.http.post<any>(this.baseUrl + 'login',
-        new Users(null,username,password,'','',null,'',null,[]), {headers})
+        new User(null,username,password,'','',null,'',null,[]), {headers})
         .pipe(catchError(this.handleError),
             (map(user => {
               if (user && user.token) {

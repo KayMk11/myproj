@@ -1,29 +1,28 @@
 <div class="row">
   <div class="search">
-    <form [formGroup]="searchFeedback">
-      <h2 class="header">All Feedbacks</h2>
+    <h2 class="header">All Feedbacks</h2>
+    <form [formGroup]="searchFeedback" (keyup)="onSearch()">
       <input type="text" id="search" placeholder="Search" class="col-lg-10" formControlName="searchText">
       <button type="submit" class="btn btn-primary">Search</button>
     </form>
   </div>
   <table class="table table-sm table-bordered table-striped">
-    <tr>
-      <th>User Id</th>
+    <tr class="head">
       <th>Feedback Id</th>
+      <th>UserID</th>
       <th>Feedback Date</th>
       <th>Title</th>
       <th>Description</th>
       <th>Status</th>
     </tr>
-    <tr *ngFor='let feedback of feedbacks'>
-      <td>{{feedback.userid}}</td>
-      <td>{{feedback.feedbackid}}</td>
-      <td>{{feedback.feedbackDate}}</td>
-      <td>{{feedback.title}}</td>
-      <td>{{feedback.description}}</td>
-      <td>
-        <button class="btn btn-danger btn-sm ml-2">Close</button>
-      </td>
+    <tr *ngFor="let fdb of feedbacks">
+      <td>{{fdb.feedbackid}}</td>
+      <td>{{fdb.user.userId}}</td>
+      <td>{{fdb.feedbackDate}}</td>
+      <td>{{fdb.title}}</td>
+      <td>{{fdb.description}}</td>
+      <td>{{fdb.status}}</td>
+        <button class="btn btn-danger btn-sm ml-2" (click)="onClickClose(fdb.feedbackid)">Close</button>
     </tr>
   </table>
 </div>

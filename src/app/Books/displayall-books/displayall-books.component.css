@@ -2,7 +2,7 @@ table{
   background-color: white;
   border-radius: 0.25rem;
   margin-left: 2rem;
-
+  width: 80rem;
 }
 .header{
   color:white;
@@ -20,7 +20,7 @@ button{
 }
 form{
   float: right;
-  margin-right: 2rem;
+  margin-right: 5rem;
 }
 .head{
   text-align: center;

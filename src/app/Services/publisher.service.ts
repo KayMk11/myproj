@@ -3,7 +3,8 @@ import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Publisher } from '../models/publisher.model';
-const headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,9 +12,9 @@ export class PublisherService {
   private baseUrl = 'http://localhost:8080/publisher';
   constructor(private httpclient: HttpClient) { }
 
-  addPublisher(publ: Publisher): Observable<Publisher> {
-    console.log(publ)
-    return this.httpclient.post<Publisher>(`${this.baseUrl}/add`, publ, { headers })
+  addPublisher(publisher: Publisher): Observable<Publisher> {
+    console.log(publisher)
+    return this.httpclient.post<Publisher>(`${this.baseUrl}/add`, publisher)
   }
 
   getAllPublishers(): Observable<Publisher[]> {
@@ -26,14 +27,12 @@ export class PublisherService {
       .pipe(catchError(this.handleError));
   }
 
-  updatePublisher(publisher: Publisher) {
-    console.log(publisher);
-    return this.httpclient.put(`${this.baseUrl}/update`, publisher, { headers })
-      .pipe(catchError(this.handleError));
+  updatePublisher(publisher: Publisher): Observable<any> {
+    return this.httpclient.put<any>(`${this.baseUrl}/update`, publisher);
   }
 
   getPublisherById(publisherId: number) {
-    return this.httpclient.get<Publisher>(`${this.baseUrl}/${publisherId}`, { headers })
+    return this.httpclient.get<Publisher>(`${this.baseUrl}/${publisherId}`)
       .pipe(catchError(this.handleError));
   }
 

@@ -7,21 +7,63 @@
     </form>
   </div>
   <table class="table table-sm table-bordered table-striped">
-    <tr class="thead">
+    <tr class="head">
       <th>Author ID</th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Contact No</th>
       <th>Email</th>
     </tr>
-    <tr *ngFor='let author of authors'>
-      <td>{{author.authorId}}</td>
-      <td>{{author.firstName}}</td>
-      <td>{{author.lastName}}</td>
-      <td>{{author.contactno}}</td>
-      <td>{{author.email}}</td>
-      <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
-      <button class="btn btn-danger btn-sm ml-2">Delete</button>
+    <tr *ngFor="let auth of authors">
+      <td>{{auth.authorId}}</td>
+      <td>{{auth.firstName}}</td>
+      <td>{{auth.lastName}}</td>
+      <td>{{auth.contactNo}}</td>
+      <td>{{auth.email}}</td>
+      <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#updateModal" *ngIf="isAdmin()"
+        (click)="onClickUpdate(auth.authorId)">Update</button>
+      <button class="btn btn-danger btn-sm ml-2" *ngIf="isAdmin()"
+        (click)="onClickDelete(auth.authorId)">Delete</button>
     </tr>
+
   </table>
+</div>
+<div class="modal" id="updateModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Update Author</h5>
+        <button type="button" class="btn-close" #closebutton data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="form-sm" [formGroup]="authorUpdateForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="authorId">Author Id</label>
+            <input type="number" class="form-control" placeholder="Author ID" id="authorId"
+              formControlName="authorId" />
+          </div>
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" placeholder="First Name" id="firstName"
+              formControlName="firstName" />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" placeholder="Last Name" id="lastName" formControlName="lastName" />
+          </div>
+          <div class="form-group">
+            <label for="contactNo">Contact</label>
+            <input type="text" class="form-control" id="contactNo" placeholder="Contact" formControlName="contactNo">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email">
+          </div>
+        </div>
+      </form>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="onSubmit()">Update</button>
+      </div>
+    </div>
+  </div>
 </div>

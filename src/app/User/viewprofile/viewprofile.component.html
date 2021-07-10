@@ -2,18 +2,19 @@
 <div class="container">
     <h2>User Profile</h2>
     <div class="details">
-      <p>User Name: </p>
-      <p>First Name:</p>
-      <p>Last Name:</p>
-      <p>Mobile Number:</p>
-      <p>Email:</p>
-      <p>Date of Birth:</p>
-
-      <p>Address line 1:</p>
-      <p>Address Line 2:</p>
-      <p>City: </p>
-      <p>State: </p>
+      <p>User Name: {{user.userName}}</p>
+      <p>First Name: {{user.firstName}}</p>
+      <p>Last Name: {{user.lastName}}</p>
+      <p>Mobile Number: {{user.mobileno}}</p>
+      <p>Email: {{user.email}}</p>
+      <p>Date of Birth: {{user.dateOfBirth}}</p>
     </div>
+    <!-- <div *ngIf="submitted">
+      <p>Address line 1: {{address.addressLine1}}</p>
+      <p>Address Line 2: {{address.addressLine2}}</p>
+      <p>City: {{user.address.city}}</p>
+      <p>State: {{user.address.state}}</p>
+    </div> -->
     <button class="btn btn-primary" data-bs-toggle="modal"
       data-bs-target="#profileModal">Update Profile</button>
 
@@ -72,12 +73,16 @@
               <div class="alert alert-danger" *ngIf="updateprofile.get('email').invalid
                 && updateprofile.get('email').touched">
               Please enter a valid email
-        </div>
+          </div>
           </div>
           <div class="form-group">
             <label for="dob">Date of Birth</label>
             <input type="date" class="form-control" id="dob"
               formControlName="dob"/>
+              <div class="alert alert-danger" *ngIf="updateprofile.get('dob').invalid
+                && updateprofile.get('dob').touched">
+                DOB is required
+          </div>
           </div>
         </div>
         <div class="modal-footer">
