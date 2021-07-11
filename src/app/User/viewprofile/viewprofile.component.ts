@@ -34,7 +34,7 @@ export class ViewprofileComponent implements OnInit {
       state: new FormControl(null, [Validators.required])
     })
   }
-  
+
   updateprofile = new FormGroup({
     firstName: new FormControl(null, [Validators.required]),
     lastName: new FormControl(null, [Validators.required]),
@@ -70,8 +70,12 @@ export class ViewprofileComponent implements OnInit {
     this.user.mobileno = this.updateprofile.value.mobileno
     this.user.email = this.updateprofile.value.email
     this.user.dateOfBirth = this.updateprofile.value.
-    console.log(this.user);
-
+    this.userservice.updateUserDetails(user).subscribe((up: User)=>{
+      this.user = up;
+      this.getUserDetails();
+    })
+  }
+  onAdd(){
     this.address.addressLine1 = this.addaddress.value.addressLine1;
     this.address.addressLine2 = this.addaddress.value.addressLine2;
     this.address.city = this.addaddress.value.city;
@@ -80,9 +84,6 @@ export class ViewprofileComponent implements OnInit {
     this.add();
     this.addaddress.reset();
 
-    this.userservice.updateUserDetails(user).subscribe(up=>{
-      this.getUserDetails();
-    })
   }
 
   add(){

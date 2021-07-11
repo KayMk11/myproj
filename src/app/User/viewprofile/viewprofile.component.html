@@ -102,7 +102,7 @@
         <h5 class="modal-title">Add Address</h5>
         <button type="button" class="btn-close" #closebutton data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form class="form-sm" [formGroup]="addaddress" (ngSubmit)="onSubmit()">
+      <form class="form-sm" [formGroup]="addaddress" (ngSubmit)="onAdd()">
         <div class="modal-body">
           <div class="form-group">
             <label for="addressLine1">Address Line 1</label>
@@ -125,7 +125,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" data-bs-dismiss="modal" (click)="onSubmit()" class="btn btn-primary">Add</button>
+          <button type="button" data-bs-dismiss="modal" (click)="onAdd()" class="btn btn-primary">Add</button>
         </div>
       </form>
     </div>
