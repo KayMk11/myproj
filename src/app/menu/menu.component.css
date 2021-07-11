@@ -1,5 +1,3 @@
-
-
 .nav-link{
   color: white;
   font-family: sans-serif;
@@ -18,4 +16,15 @@
 } */
 .adminbg{
   background-color: blue;
+}
+.nav-item:hover{
+  border-bottom: 2px solid rgb(245, 245, 244);
+}
+a{
+  margin-top: 0.5rem;
+  padding: 0 0.5rem;
+}
+.dropdown-item:hover
+{
+  border: 1px solid rgb(0, 0, 0);
 }

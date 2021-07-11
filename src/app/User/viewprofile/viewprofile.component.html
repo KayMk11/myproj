@@ -16,13 +16,13 @@
       <p>State: {{user.address.state}}</p>
     </div>
     <button class="btn btn-primary" data-bs-toggle="modal"
-      data-bs-target="#profileModal">Update Profile</button>
+      (click)="onClickUpdate(user)" data-bs-target="#profileModal">Update Profile</button>
 
     <button class="btn btn-primary" data-bs-toggle="modal"
-      data-bs-target="#addressModal">Update Address</button>
+      data-bs-target="#addressModal">Add Address</button>
 
     <button class="btn btn-primary" data-bs-toggle="modal"
-      data-bs-target="#updateaddress">Remove Address</button>
+     data-bs-target="#updateaddress">Update Address</button>
 </div>
 
 <!-- Modal form for update profile -->
@@ -86,7 +86,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Update</button>
+          <button type="button" (click)="onSubmit()" class="btn btn-primary">Update</button>
           <button type="button" class="btn btn-danger">Close</button>
         </div>
       </form>
@@ -143,18 +143,42 @@
         <div class="modal-body">
           <div class="form-group">
             <input type="text" class="form-control" id="addressLine1" placeholder="Address line 1" formControlName="addressLine1"/>
+            <div class="alert alert-danger" *ngIf="updateprofile.get('addressLine1').invalid
+            && updateprofile.get('addressLine1').touched">
+            <div *ngIf="updateprofile.get('addressLine1').errors.required">
+              Address Line 1 is required
+            </div>
+          </div>
           </div>
          <div class="form-group">
             <input type="text" class="form-control" id="addressLine2"  placeholder="Address line 2"
              formControlName="addressLine2">
+             <div class="alert alert-danger" *ngIf="updateprofile.get('addressLine2').invalid
+            && updateprofile.get('addressLine2').touched">
+            <div *ngIf="updateprofile.get('addressLine2').errors.required">
+              Address Line 2 is required
+            </div>
+          </div>
           </div>
           <div class="form-group">
             <input type="text" class="form-control" id="city"  placeholder="City"
               formControlName="city"/>
+              <div class="alert alert-danger" *ngIf="updateprofile.get('city').invalid
+            && updateprofile.get('city').touched">
+            <div *ngIf="updateprofile.get('city').errors.required">
+              City is required
+            </div>
+          </div>
           </div>
           <div class="form-group">
             <input type="text" class="form-control" id="state" placeholder="State"
               formControlName="state"/>
+              <div class="alert alert-danger" *ngIf="updateprofile.get('state').invalid
+            && updateprofile.get('state').touched">
+            <div *ngIf="updateprofile.get('state').errors.required">
+              Satet is required
+            </div>
+          </div>
           </div>
         </div>
         <div class="modal-footer">

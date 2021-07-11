@@ -21,8 +21,11 @@ export class UserService {
     console.log(useraddr)
     return this.httpclient.post<UserAddress>(`${this.baseUrl}/address/add`, useraddr,{headers})
   }
-  updateUserDetails(useraddr:UserAddress): Observable<any>{
-    return this.httpclient.put<any>(`${this.baseUrl}/address/update`, useraddr);
+  updateUserDetails(user:User): Observable<any>{
+    return this.httpclient.put<any>(`${this.baseUrl}/update`, user);
+  }
+  updateAddress(useraddr:UserAddress):Observable<any>{
+    return this.httpclient.put<any>(`${this.baseUrl}/address/update`, useraddr)
   }
 
   private handleError(httpError: HttpErrorResponse) {

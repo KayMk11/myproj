@@ -11,7 +11,7 @@
               <a class="nav-link" [routerLink]="['/login']" href="#"><b>Login</b></a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-             <a class="nav-link" [routerLink]="['/signup']" href="#"><b>Sign Up</b></a>
+             <a class="nav-link" [routerLink]="['/signup']" href="#"><b>Sign Up/Register</b></a>
             </li>
           </ul>
         </div>
@@ -23,11 +23,11 @@
               <a class="nav-link" [routerLink]="['/userhome']" href="#"><b>Home</b></a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-              <a class="nav-link" [routerLink]="['/viewprofile']" href="#">View Profile</a>
+              <a class="nav-link" [routerLink]="['/viewprofile']" href="#"><b>View Profile</b></a>
             </li>
             <li class="nav-item dropdown ">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Books
+                <b>Books</b>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/issuebook']" href="#">Issue Book</a></li>
@@ -36,7 +36,7 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Feedback
+                <b>Feedback</b>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/addfeedback']" href="#">Give Feedback</a></li>
@@ -44,11 +44,11 @@
               </ul>
             </li>
             <li class="nav-item" routerLinkActive="active">
-              <a class="nav-link" [routerLink]="['/allauthor']" href="#">Authors</a>
+              <a class="nav-link" [routerLink]="['/allauthor']" href="#"><b>Authors</b></a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Suggest Books
+                <b>Suggest Books </b>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li class="nav-item" routerLinkActive="active">
@@ -58,10 +58,10 @@
               </ul>
             </li>
             <li class="nav-item" routerLinkActive="active">
-              <a class="nav-link" [routerLink]="['/updatepassword']" href="#">Update Password</a>
+              <a class="nav-link" [routerLink]="['/updatepassword']" href="#"><b>Update Password</b></a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-              <a class="nav-link" [routerLink]="['/login']" (click)='logout()' href="#">Logout</a>
+              <a class="nav-link" [routerLink]="['/login']" (click)='logout()' href="#"><b>Logout</b></a>
             </li>
           </ul>
         </div>

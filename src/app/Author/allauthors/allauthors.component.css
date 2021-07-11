@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');
+
 table{
   background-color: white;
   border-radius: 0.625rem;
-  margin-left: 5rem;
+  margin-left: 3rem;
   width: 80rem;
 }
 
@@ -22,7 +24,8 @@ form{
 .header{
   color:white;
   float: left;
-  margin-left: 2rem;
+  margin-left: 3rem;
+  font-family: 'PT Serif', serif;
 }
 .head{
   text-align: center;

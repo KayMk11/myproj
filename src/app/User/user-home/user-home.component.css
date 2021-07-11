@@ -1,6 +1,9 @@
 
 .head{
-  background-color:  hsla(30, 55%, 68%, 0.65);
+  background-color:  hsla(30, 55%, 68%, 0.50);
+  margin-top: 5rem;
+  width: 60%;
+  margin-left: 20%;
 }
 h1{
   color:rgb(255, 255, 255);
