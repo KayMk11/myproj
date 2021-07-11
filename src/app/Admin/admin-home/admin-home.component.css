@@ -1,21 +1,12 @@
 
 h1{
-  color:white;
-  text-align: center;
   font-size: 8rem;
-  top: 15%;
-  left: 20%;
-  position: absolute;
-}
-p{
-  color:white;
 }
 .container{
-  background-color: #f3f1f1;
-  width:50%;
-  justify-content: flex-start;
-  align-items: flex-start;
-  position: absolute;
-  top: 40%;
-  left: 20%;
+  background-color: hsla(26, 32%, 84%,0.50);
+  width:100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 5rem;
 }

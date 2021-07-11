@@ -76,6 +76,7 @@
           </div>
           </div>
           <div class="form-group">
+            
             <label for="dateOfBirth">Date of Birth</label>
             <input type="date" class="form-control" id="dateOfBirth"
               formControlName="dateOfBirth"/>
@@ -86,8 +87,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" (click)="onSubmit()" class="btn btn-primary">Update</button>
-          <button type="button" class="btn btn-danger">Close</button>
+          <button type="button" data-bs-dismiss="modal" (click)="onSubmit()" class="btn btn-primary">Update</button>
         </div>
       </form>
     </div>
