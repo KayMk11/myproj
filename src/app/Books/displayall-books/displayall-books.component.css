@@ -1,14 +1,10 @@
 table{
   background-color: white;
-  border-radius: 0.25rem;
+  border-radius: 4px;
   margin-left: 2rem;
   width: 80rem;
 }
-.header{
-  color:white;
-  float: left;
-  margin-left: 2rem;
-}
+
 #search{
   margin-right: 20px;
   margin-bottom: 10px;
@@ -21,6 +17,11 @@ button{
 form{
   float: right;
   margin-right: 5rem;
+}
+.header{
+  color:white;
+  float: left;
+  margin-left: 2rem;
 }
 .head{
   text-align: center;

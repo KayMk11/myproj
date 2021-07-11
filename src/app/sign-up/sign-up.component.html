@@ -6,7 +6,6 @@
           <div class="form-group ">
             <label for="username">Username</label>
             <input type="text" class="form-control"
-             [ngClass]="{ 'is-invalid': submitted && signupForm.get('username').errors }"
              placeholder=" Username" id="username" formControlName="username"/>
             <div class="alert alert-danger" *ngIf="signupForm.get('username').invalid
               && signupForm.get('username').touched">
@@ -24,7 +23,7 @@
           <div class="form-group">
             <label for="password">Password</label>
             <input type="password" class="form-control"  placeholder="Password" id="password"
-             [ngClass]="{ 'is-invalid': submitted && signupForm.get('username').errors }" formControlName="password"/>
+             formControlName="password"/>
             <div class="alert alert-danger" *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched">
               <div *ngIf="signupForm.get('password').errors.required">
                 Password should be atleast 8 characters long
@@ -42,7 +41,6 @@
           <div class="form-group">
             <label for="email">Email</label>
             <input type="email" class="form-control" class="form-control" id="email"
-            [ngClass]="{ 'is-invalid': submitted && signupForm.get('email').errors }"
             placeholder="Email" formControlName="email">
             <div class="alert alert-danger" *ngIf="signupForm.get('email').invalid
             && signupForm.get('email').touched">
@@ -52,7 +50,6 @@
           <div class="form-group">
             <label for="firstname">First Name</label>
             <input type="text" class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && signupForm.get('firstname').errors }"
             placeholder="First Name" id="firstname" formControlName="firstname"/>
             <div class="alert alert-danger" *ngIf="signupForm.get('firstname').invalid
             && signupForm.get('firstname').touched">
@@ -64,7 +61,6 @@
           <div class="form-group">
             <label for="lastname">Last Name</label>
             <input type="text" class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && signupForm.get('lastname').errors }"
              placeholder=" Last Name" id="lastname" formControlName="lastname"/>
             <div class="alert alert-danger" *ngIf="signupForm.get('lastname').invalid
             && signupForm.get('lastname').touched">
@@ -76,7 +72,6 @@
           <div class="form-group">
             <label for="mobileno">Phone Number</label>
             <input type="text" class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && signupForm.get('mobileno').errors }"
             placeholder="Mobile number" id="mobileno" formControlName="mobileno"/>
             <div *ngIf="signupForm.get('mobileno').touched && signupForm.get('mobileno').invalid" class="alert alert-danger">
               <div *ngIf="signupForm.get('mobileno').errors.required">Mobile Number is required.</div>
@@ -84,12 +79,11 @@
           </div>
           </div>
           <div class="form-group">
-            <label for="dob">Date of Birth</label>
+            <label for="dateOfBirth">Date of Birth</label>
             <input type="date" class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && signupForm.get('dob').errors }"
-            class="form-control" id="dob" formControlName="dob">
-            <div *ngIf="signupForm.get('dob').touched && signupForm.get('dob').invalid" class="alert alert-danger">
-              <div *ngIf="signupForm.get('dob').errors.required">Date of birth is required.</div>
+            class="form-control" id="dateOfBirth" formControlName="dateOfBirth">
+            <div *ngIf="signupForm.get('dateOfBirth').touched && signupForm.get('dateOfBirth').invalid" class="alert alert-danger">
+              <div *ngIf="signupForm.get('dateOfBirth').errors.required">Date of birth is required.</div>
           </div>
           </div>
           <!-- <div class="form-group">
@@ -99,10 +93,13 @@
             </select>
           </div> -->
           <button type="submit" [disabled]="signupForm.invalid"  class="btn btn-success">Sign up</button>
-          <div class="alert alert-success" *ngIf="isRegistered">
-            Signed Up  successfully!
-          </div>
+
         </form>
       </div>
+    </div>
+
+    <div class="alert alert-info" *ngIf="submitted">
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      Signed Up  successfully!
     </div>
 

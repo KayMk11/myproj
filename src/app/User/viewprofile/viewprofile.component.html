@@ -9,20 +9,20 @@
       <p>Email: {{user.email}}</p>
       <p>Date of Birth: {{user.dateOfBirth}}</p>
     </div>
-    <!-- <div *ngIf="submitted">
-      <p>Address line 1: {{address.addressLine1}}</p>
-      <p>Address Line 2: {{address.addressLine2}}</p>
+    <div>
+      <p>Address line 1: {{user.address.addressLine1}}</p>
+      <p>Address Line 2: {{user.address.addressLine2}}</p>
       <p>City: {{user.address.city}}</p>
       <p>State: {{user.address.state}}</p>
-    </div> -->
+    </div>
     <button class="btn btn-primary" data-bs-toggle="modal"
       data-bs-target="#profileModal">Update Profile</button>
 
     <button class="btn btn-primary" data-bs-toggle="modal"
-      data-bs-target="#addressModal">Add Address</button>
+      data-bs-target="#addressModal">Update Address</button>
 
     <button class="btn btn-primary" data-bs-toggle="modal"
-      data-bs-target="#updateaddress">Update Address</button>
+      data-bs-target="#updateaddress">Remove Address</button>
 </div>
 
 <!-- Modal form for update profile -->
@@ -76,11 +76,11 @@
           </div>
           </div>
           <div class="form-group">
-            <label for="dob">Date of Birth</label>
-            <input type="date" class="form-control" id="dob"
-              formControlName="dob"/>
-              <div class="alert alert-danger" *ngIf="updateprofile.get('dob').invalid
-                && updateprofile.get('dob').touched">
+            <label for="dateOfBirth">Date of Birth</label>
+            <input type="date" class="form-control" id="dateOfBirth"
+              formControlName="dateOfBirth"/>
+              <div class="alert alert-danger" *ngIf="updateprofile.get('dateOfBirth').invalid
+                && updateprofile.get('dateOfBirth').touched">
                 DOB is required
           </div>
           </div>
@@ -125,37 +125,12 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Add</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="button" data-bs-dismiss="modal" (click)="onSubmit()" class="btn btn-primary">Add</button>
         </div>
       </form>
     </div>
   </div>
 </div>
-
-<!-- view Address modal -->
-<!-- <div class="modal" id="viewaddressModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Address</h5>
-        <button type="button" class="btn-close" #closebutton data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <form class="form-sm" [formGroup]="viewaddress">
-        <div class="modal-body">
-            <p>Address line 1</p>
-            <p>Address line 2</p>
-            <p>city</p>
-            <p>state</p>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary" data-bs-target="#updateaddress"
-           data-bs-toggle="modal" data-bs-dismiss="modal">Update Address</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div> -->
 
 <div class="modal" id="updateaddress" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog">

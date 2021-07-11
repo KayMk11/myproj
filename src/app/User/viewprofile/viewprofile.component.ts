@@ -15,8 +15,8 @@ export class ViewprofileComponent implements OnInit {
   viewaddress:FormGroup;
   updateaddress:FormGroup;
   submitted=false;
-  address:UserAddress;
-  user:User;
+  address:UserAddress = new UserAddress();
+  user:User = new User(0,'','','','','','',new Date(),[]);
 
   @ViewChild('closebutton') closebutton: { nativeElement: { click: () => void; }; };
   constructor(private fb:FormBuilder, private userservice:UserService) {
@@ -32,8 +32,9 @@ export class ViewprofileComponent implements OnInit {
       lastName: new FormControl(null, [Validators.required]),
       mobileno: new FormControl(null, [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
       email: new FormControl(null, [Validators.required, Validators.email]),
-      dob:new FormControl(null,[Validators.required])
+      dateOfBirth:new FormControl(null,[Validators.required])
     })
+
     this.addaddress = this.fb.group({
       addressLine1: new FormControl(null, [Validators.required]),
       addressLine2: new FormControl(null, [Validators.required]),
@@ -43,21 +44,22 @@ export class ViewprofileComponent implements OnInit {
   }
 
   onSubmit(){
-    this.submitted = true;
-    if (this.updateprofile.invalid) {
-      return;
-    }
+
     this.address.addressLine1 = this.addaddress.value.addressLine1;
     this.address.addressLine2 = this.addaddress.value.addressLine2;
     this.address.city = this.addaddress.value.city;
     this.address.state = this.addaddress.value.state;
+    console.log(this.address);
+    this.add();
+    this.addaddress.reset();
 
   }
 
   add(){
     this.userservice.addAddress(this.address).subscribe(addr =>{
+      this.submitted = true;
       console.log(addr);
     },
-  error=>console.log(error))
+    error=>console.log(error))
   }
 }

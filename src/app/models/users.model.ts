@@ -22,11 +22,12 @@ export class User{
     this.password = password;
     this.userId = userId;
     this.firstName = firstname
-    this. lastName= lastname
+    this.lastName= lastname
     this.mobileno = mobileno
     this. email = email
     this.dateOfBirth = dateOfBirth
     this.roles = roles
+
   }
 
 }

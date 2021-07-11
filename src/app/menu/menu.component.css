@@ -1,4 +1,5 @@
 
+
 .nav-link{
   color: white;
   font-family: sans-serif;
@@ -15,3 +16,6 @@
 /* nav{
   background-color: hsla(30, 7%, 95%,0.5);
 } */
+.adminbg{
+  background-color: blue;
+}

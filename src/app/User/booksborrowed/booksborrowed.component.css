@@ -1,24 +1,31 @@
 table{
   background-color: white;
-  border-radius: 0.5rem;
+  border-radius: 4px;
+  margin-left: 2rem;
+  width: 80rem;
+}
+
+#search{
+  margin-right: 20px;
+  margin-bottom: 10px;
+  width: 30rem;
+}
+button{
+  margin-bottom: 8px;
+  padding: 2px;
+}
+form{
+  float: right;
+  margin-right: 5rem;
 }
 .header{
   color:white;
   float: left;
-  margin-right: 20rem;
+  margin-left: 2rem;
 }
-#search{
-  margin-right: 1.25rem;
-  margin-bottom: 0.625rem;
-  width: 30rem;
+.head{
+  text-align: center;
 }
-button{
-  margin-bottom: 0.5rem;
-  padding: 0.125rem;
-}
-form{
-  float: right;
-}
-.thead{
+td{
   text-align: center;
 }
