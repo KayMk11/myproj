@@ -4,6 +4,7 @@ import { Books } from '../books.model';
 import { AuthorService } from 'src/app/Services/author.service';
 import { PublisherService } from 'src/app/Services/publisher.service';
 import { BooksService } from 'src/app/Services/books.service';
+import { BookWrapper } from './book-wrapper.model';
 
 
 @Component({
@@ -32,32 +33,20 @@ export class AddbookComponent implements OnInit {
     })
   }
   onSubmit() {
-    let book: Books = new Books(null, '', '', [], null, null, '', null, '', null);
+    let book: BookWrapper = new BookWrapper(null, '', '', [], null, null, '', null, '', null);
     book.title = this.addbookForm.value.Title;
     book.subject = this.addbookForm.value.subject;
     book.publishedYear = this.addbookForm.value.publishedYear;
-    // console.log(this.addbookForm.getRawValue().publisherId)
-    this.publisherService.getPublisherById(this.addbookForm.value.publisherId).subscribe(
-      data => {
-        book.publisher = data
-      }
-    );
+    book.publisherId = this.addbookForm.value.publisherId;
     book.isbn = this.addbookForm.value.isbn;
     book.quantity = this.addbookForm.value.quantity;
     book.shelfDetails = this.addbookForm.value.shelfDetails;
     book.bookCost = this.addbookForm.value.bookCost;
-    for (let id of this.addbookForm.value.authorIdList) {
-      this.authorService.getAuthorById(id).subscribe(
-        data => {
-          book.authors.push(data)
-        }
-      );
-    }
+    book.authorIdList = this.addbookForm.value.authorIdList
     console.log(book)
-    // console.log("")
     console.log(JSON.stringify(book))
-    // this.bookService.addBook(this.book);
-    // this.addbookForm.reset();
+    this.bookService.addBook(book);
+    this.addbookForm.reset();
     this.submitted = true;
   }
   createElement() {

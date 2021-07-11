@@ -13,30 +13,28 @@
       <th>BookId</th>
       <th>Title</th>
       <th>Subject</th>
-      <th>Author Id</th>
-      <th>Publisher Id</th>
+      <th>Author</th>
+      <!-- <th>Publisher Id</th> -->
       <th>Published Year</th>
       <th>ISBN</th>
       <th>Quantity</th>
       <th>Shelf Details</th>
-      <th>BookCost</th>
+      <!-- <th>BookCost</th> -->
     </tr>
-    <!-- <tr *ngFor='let book of books'>
+    <tr *ngFor='let book of books'>
       <td>{{book.bookId}}</td>
       <td>{{book.title}}</td>
       <td>{{book.subject}}</td>
-      <td>{{book.authorIdList}}</td>
-      <td>{{book.publisherId}}</td>
+      <td><span *ngFor='let author of book.authors'>{{author.firstName + ' ' + author.lastName}}</span></td>
+      <!-- <td>{{book.publisher.publisherName}}</td> -->
       <td>{{book.publishedYear}}</td>
       <td>{{book.isbn}}</td>
       <td>{{book.quantity}}</td>
       <td>{{book.shelfDetails}}</td>
-      <td>{{book.bookCost}}</td>
-      <td>
-        <button class="btn btn-success btn-sm" data-bs-toggle="modal"
-          data-bs-target="#issueModal">Issue</button>
-      </td>
-    </tr> -->
+      <!-- <td>{{book.bookCost}}</td> -->
+      <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#issueModal"
+        (click)="onClickIssue(book.bookId)">Issue</button>
+    </tr>
   </table>
 </div>
 

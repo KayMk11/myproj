@@ -35,6 +35,7 @@ import { BooksborrowedComponent } from './User/booksborrowed/booksborrowed.compo
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AuthInterceptor } from './Services/authInterceptor.service';
+import { SubscriptionComponent } from './User/subscription/subscription.component';
 
 
 
@@ -66,7 +67,8 @@ import { AuthInterceptor } from './Services/authInterceptor.service';
     ViewprofileComponent,
     UpdatepasswordComponent,
     ViewfeedbacksComponent,
-    BooksborrowedComponent
+    BooksborrowedComponent,
+    SubscriptionComponent
   ],
   imports: [
     BrowserModule,

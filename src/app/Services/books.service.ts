@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { BookWrapper } from '../Books/addbook/book-wrapper.model';
 import { Books } from '../Books/books.model';
 
 const headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -33,15 +34,13 @@ export class BooksService {
       .pipe(catchError(this.handleError))
   }
 
-  addBook(book: Books) {
+  addBook(book: BookWrapper) {
     console.log(book)
-    // console.log(`${this.baseURL}/add`)
     this.httpclient.post<Books>(`${this.baseURL}/add`, book, { headers }).subscribe(
       res => {
         console.log(res)
       }
     )
-    // .pipe(catchError(this.handleError))
   }
   deleteBook(bookId: number) {
     return this.httpclient.delete(`${this.baseURL}/delete/${bookId}`)

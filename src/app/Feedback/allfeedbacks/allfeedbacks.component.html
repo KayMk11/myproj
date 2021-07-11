@@ -16,13 +16,13 @@
       <th>Status</th>
     </tr>
     <tr *ngFor="let fdb of feedbacks">
-      <td>{{fdb.feedbackid}}</td>
+      <td>{{fdb.feedbackId}}</td>
       <td>{{fdb.user.userId}}</td>
       <td>{{fdb.feedbackDate}}</td>
       <td>{{fdb.title}}</td>
       <td>{{fdb.description}}</td>
       <td>{{fdb.status}}</td>
-        <button class="btn btn-danger btn-sm ml-2" (click)="onClickClose(fdb.feedbackid)">Close</button>
+      <button class="btn btn-danger btn-sm ml-2" (click)="onClickClose(fdb.feedbackId)">Close</button>
     </tr>
   </table>
 </div>

@@ -13,7 +13,7 @@ import { DatePipe } from '@angular/common';
 export class SignUpComponent implements OnInit {
   signupForm: FormGroup;
   // roles= ['User', 'Admin'];
-  user:User = new User(null,'','','','',null,'',null,[]);
+  user: User = new User(null, '', '', '', '', null, '', null, []);
   selectedRoles: string[];
   submitted = false;
   isRegistered = false;
@@ -22,18 +22,18 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = new FormGroup({
-      username: new FormControl(null,[Validators.required, Validators.minLength(5), Validators.maxLength(20)]),
+      username: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(20)]),
       email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null,[Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,20}$'),
+      password: new FormControl(null, [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,20}$'),
       Validators.minLength(8), Validators.maxLength(20)]),
-      firstname: new FormControl(null,Validators.required),
-      lastname: new FormControl(null,Validators.required),
+      firstname: new FormControl(null, Validators.required),
+      lastname: new FormControl(null, Validators.required),
       mobileno: new FormControl(null, [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-      dateOfBirth:new FormControl(null, [Validators.required])
+      dob: new FormControl(null, [Validators.required])
     })
   }
 
-  onSubmit(){
+  onSubmit() {
     this.submitted = true;
     if (this.signupForm.invalid) {
       return;
@@ -54,10 +54,10 @@ export class SignUpComponent implements OnInit {
 
   save() {
     this.authService.signup(this.user).subscribe(user => {
-        console.log(user);
-        this.isRegistered = true;
+      console.log(user);
+      this.isRegistered = true;
     }, error => {
-        console.log(error);
+      console.log(error);
     });
   }
 

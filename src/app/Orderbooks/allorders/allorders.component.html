@@ -1,6 +1,6 @@
 <div class="row">
   <div class="search">
-    <form [formGroup]="searchorder">
+    <form [formGroup]="searchorder" (keyup)="search()">
       <h2 class="header">Order History</h2>
       <input type="text" id="search" placeholder="Search" class="col-lg-10" formControlName="searchText">
       <button type="submit" class="btn btn-primary">Search</button>
@@ -9,27 +9,23 @@
   <table class="table table-sm table-bordered table-striped">
     <tr class="thead">
       <th>Order ID</th>
+      <th>Book</th>
+      <th>Pushisher</th>
       <th>Quantity</th>
       <th>Order Date</th>
       <th>Order Status</th>
-      <th>Book Id(s)</th>
-      <th>Description</th>
-      <th>Pushisher ID</th>
 
     </tr>
     <tr *ngFor='let orderbook of booksorder'>
       <td>{{orderbook.orderId}}</td>
+      <td>{{orderbook.book.title}}</td>
+      <td>{{orderbook.publisher.publisherName}}</td>
       <td>{{orderbook.quantity}}</td>
       <td>{{orderbook.orderDate}}</td>
       <td>{{orderbook.orderStatus}}</td>
-      <td>{{orderbook.bookIdList}}</td>
-      <td>{{orderbook.publisherId}}</td>
-      <td>
-        <button class="btn btn-success btn-sm"
-          data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
-        <button class="btn btn-danger btn-sm ml-2">Delete</button>
-        <button class="btn btn-danger btn-sm ml-2">Close</button>
-      </td>
+      <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
+      <button class="btn btn-danger btn-sm ml-2" (click)="onClickCancel(orderbook.orderId)">cancel</button>
+      <button class="btn btn-danger btn-sm ml-2" (click)="onClickClose(orderbook.orderId)">Close</button>
     </tr>
   </table>
 </div>

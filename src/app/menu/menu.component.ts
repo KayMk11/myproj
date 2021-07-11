@@ -8,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
   currentUser: any;
-
+  username: string;
   constructor(private authservice: AuthService) {
   }
   ngOnInit(): void {
+    this.username = this.getUserName();
+    console.log(this.getUserName())
   }
 
   isLoggedIn() {
@@ -21,6 +23,9 @@ export class MenuComponent implements OnInit {
 
   logout() {
     this.authservice.logout()
+  }
+  getUserName() {
+    return sessionStorage.getItem('username')
   }
 
   isUser() {

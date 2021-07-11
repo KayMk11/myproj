@@ -12,7 +12,6 @@ export class Books {
 	quantity: number;
 	shelfDetails: string;
 	bookCost: number;
-	// constructor() { }
 	constructor(bookId: number, title: string, subject: string, authors: Author[], publisher: Publisher, publishedYear: number,
 		isbn: string, quantity: number, shelfDetails: string, bookCost: number) {
 		this.bookId = bookId;

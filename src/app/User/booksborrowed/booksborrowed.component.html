@@ -1,5 +1,5 @@
 <div class="row">
-     <!-- Penalty/Fine will be displayed here -->
+  <!-- Penalty/Fine will be displayed here -->
   <div class="search">
     <form [formGroup]="borrowedBooks">
       <h2 class="header">Borrowed Books</h2>
@@ -10,20 +10,20 @@
 
   <table class="table table-sm table-bordered table-striped">
     <tr class="thead">
+      <!-- <th>Issue ID</th> -->
       <th>Book</th>
       <th>Issue Date</th>
       <th>Return Date</th>
       <th>Status</th>
     </tr>
     <tr *ngFor='let bookborrow of booksborrowed'>
-      <td>{{bookborrow.book}}</td>
+      <!-- <td>{{bookborrow.issueId}}</td> -->
+      <td>{{bookborrow.book.title}}</td>
       <td>{{bookborrow.issueDate}}</td>
       <td>{{bookborrow.returnDate}}</td>
       <td>{{bookborrow.status}}</td>
-      <td>
-        <button class="btn btn-danger btn-sm ml-2" data-bs-toggle="modal"
-          data-bs-target="#returnModal">Return</button>
-      </td>
+      <button class="btn btn-danger btn-sm ml-2" data-bs-toggle="modal" data-bs-target="#returnModal"
+        (click)="onClickReturn(bookborrow.issueId)">Return</button>
     </tr>
   </table>
 </div>

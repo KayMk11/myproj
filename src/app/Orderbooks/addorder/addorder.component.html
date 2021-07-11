@@ -1,45 +1,48 @@
 <div class="container">
-      <div class="row">
-        <div class="header"><h2>Order a Book</h2></div>
-        <form [formGroup]="orderbook" (ngSubmit)="onSubmit()"  id="form" class="form">
-          <div class="form-group">
-            <label for="quantity">Quantity</label>
-            <input class="form-control" placeholder="Quantity" id="quantity" type="number" formControlName="quantity"
-            [ngClass]="{ 'is-invalid': submitted && orderbook.get('quantity').errors }"/>
-            <div class="alert alert-danger" *ngIf="orderbook.get('quantity').invalid
-              && orderbook.get('quantity').touched">
-              <div *ngIf="orderbook.get('quantity').errors.required">
-                Quantity is required
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <!-- Order Date will be the current Date -->
-            <label for="orderDate">Order Date </label>
-            <input type="date" class="form-control" id="orderDate" formControlName="orderDate">
-          </div>
-          <div class="form-group">
-            <!-- Order Status will be rpre filled -->
-            <label for="orderStatus">Order Status</label>
-            <input  class="form-control" placeholder="Order Status " id="orderStatus" type="text" formControlName="orderStatus"/>
-          </div>
-          <div class="form-group">
-            <!-- will Add a modal form for adding a book -->
-            <label for="bookIdList">Book ID(s)</label>
-            <input  class="form-control" placeholder="Book ID" id="bookIdList" type="text" formControlName="bookIdList"/>
-          </div>
-          <div class="form-group">
-            <label for="publisherId">Publisher ID</label>
-            <input  class="form-control" placeholder="Publisher ID" id="publisherId" type="text"
-            [ngClass]="{ 'is-invalid': submitted && orderbook.get('publisherId').errors }" formControlName="publisherId"/>
-            <div class="alert alert-danger" *ngIf="orderbook.get('publisherId').invalid
-              && orderbook.get('publisherId').touched">
-              <div *ngIf="orderbook.get('publisherId').errors.required">
-                Publisher ID is required
-              </div>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-success">Place Order</button>
-        </form>
-      </div>
+  <div class="row">
+    <div class="header">
+      <h2>Order a Book</h2>
     </div>
+    <form [formGroup]="orderbook" (ngSubmit)="onSubmit()" id="form" class="form">
+
+      <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input class="form-control" placeholder="Quantity" id="quantity" type="number" formControlName="quantity"
+          [ngClass]="{ 'is-invalid': submitted && orderbook.get('quantity').errors }" />
+        <div class="alert alert-danger" *ngIf="orderbook.get('quantity').invalid
+              && orderbook.get('quantity').touched">
+          <div *ngIf="orderbook.get('quantity').errors.required">
+            Quantity is required
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="bookId">Book ID</label>
+        <input class="form-control" placeholder="Book ID" id="bookId" type="text"
+          [ngClass]="{ 'is-invalid': submitted && orderbook.get('bookId').errors }" formControlName="bookId" />
+        <div class="alert alert-danger" *ngIf="orderbook.get('bookId').invalid
+                      && orderbook.get('bookId').touched">
+          <div *ngIf="orderbook.get('bookId').errors.required">
+            Book ID is required
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="publisherId">Publisher ID</label>
+        <input class="form-control" placeholder="Publisher ID" id="publisherId" type="text"
+          [ngClass]="{ 'is-invalid': submitted && orderbook.get('publisherId').errors }"
+          formControlName="publisherId" />
+        <div class="alert alert-danger" *ngIf="orderbook.get('publisherId').invalid
+              && orderbook.get('publisherId').touched">
+          <div *ngIf="orderbook.get('publisherId').errors.required">
+            Publisher ID is required
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success">Place Order</button>
+    </form>
+  </div>
+</div>

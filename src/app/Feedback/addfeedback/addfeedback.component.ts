@@ -10,14 +10,14 @@ import { User } from 'src/app/models/users.model';
   styleUrls: ['./addfeedback.component.css']
 })
 export class AddfeedbackComponent implements OnInit {
-  feedbackForm:FormGroup;
-  submitted=false;
-  feedback:Feedback = new Feedback(0,new Date(),'','','', new User(0,'','','','',null,'',null,[]));
+  feedbackForm: FormGroup;
+  submitted = false;
+  feedback: Feedback = new Feedback(null, null, '', '', '', null);
   // feedback:Feedback = new Feedback(0,new Date(),'','','',new User);
-  isAdded=false;
-  constructor(private feedbackservice:FeedbackService) {
+  isAdded = false;
+  constructor(private feedbackservice: FeedbackService) {
 
-   }
+  }
 
   ngOnInit(): void {
     this.feedbackForm = new FormGroup({
@@ -25,7 +25,7 @@ export class AddfeedbackComponent implements OnInit {
       description: new FormControl('', [Validators.required])
     })
   }
-  onSubmit(){
+  onSubmit() {
     this.submitted = true;
     this.feedback.title = this.feedbackForm.value.title
     this.feedback.description = this.feedbackForm.value.description
@@ -33,11 +33,11 @@ export class AddfeedbackComponent implements OnInit {
     this.feedbackForm.reset()
   }
 
-  write(){
-   this.feedbackservice.writefeedback(this.feedback).subscribe(feedback=>{
-     console.log(this.feedback)
-     this.isAdded = true;
-   })
+  write() {
+    this.feedbackservice.writefeedback(this.feedback).subscribe(feedback => {
+      console.log(this.feedback)
+      this.isAdded = true;
+    })
   }
 
 }

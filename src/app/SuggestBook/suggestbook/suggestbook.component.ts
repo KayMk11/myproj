@@ -10,20 +10,20 @@ import { User } from 'src/app/models/users.model';
   styleUrls: ['./suggestbook.component.css']
 })
 export class SuggestbookComponent implements OnInit {
-  suggestbook:FormGroup;
+  suggestbook: FormGroup;
   submitted = false;
-  suggestbooks:SuggestBook = new SuggestBook(0,'','','','',new Date(),new User(0,'','','','',null,'',null,[]));
-  constructor(private suggestservice:SuggestbookService ) { }
+  suggestbooks: SuggestBook = new SuggestBook(0, '', '', '', '', null, new User(0, '', '', '', '', null, '', null, []));
+  constructor(private suggestservice: SuggestbookService) { }
 
   ngOnInit(): void {
     this.suggestbook = new FormGroup({
-      title: new FormControl(null,[Validators.required]),
-      subject: new FormControl(null,[Validators.required]),
-      author: new FormControl(null,[Validators.required]),
-      description: new FormControl(null,[Validators.required])
+      title: new FormControl(null, [Validators.required]),
+      subject: new FormControl(null, [Validators.required]),
+      author: new FormControl(null, [Validators.required]),
+      description: new FormControl(null, [Validators.required])
     })
   }
-  onSubmit(){
+  onSubmit() {
     this.submitted = true;
     this.suggestbooks.title = this.suggestbook.value.title
     this.suggestbooks.subject = this.suggestbook.value.subject
@@ -32,9 +32,9 @@ export class SuggestbookComponent implements OnInit {
     this.save();
     this.suggestbook.reset();
   }
-  save(){
-    this.suggestservice.suggestBook(this.suggestbooks).subscribe(feedback=>{
+  save() {
+    this.suggestservice.suggestBook(this.suggestbooks).subscribe(feedback => {
       console.log(this.suggestbooks)
     })
-   }
+  }
 }

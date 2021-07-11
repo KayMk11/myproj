@@ -9,7 +9,6 @@
   <table class="table table-sm table-bordered table-striped">
     <tr class="head">
       <th>ID</th>
-      <th>User ID</th>
       <th>Title</th>
       <th>Subject</th>
       <th>Author</th>
@@ -19,14 +18,13 @@
     </tr>
     <tr *ngFor='let sbooks of suggestions'>
       <td>{{sbooks.id}}</td>
-      <td>{{sbooks.user.userId}}</td>
       <td>{{sbooks.title}}</td>
       <td>{{sbooks.subject}}</td>
       <td>{{sbooks.author}}</td>
       <td>{{sbooks.description}}</td>
       <td>{{sbooks.suggestionDate}}</td>
 
-        <button class="btn btn-danger btn-sm ml-2" (click)="onClickDelete(sbooks.id)" *ngIf="isAdmin()">Delete</button>
+      <button class="btn btn-danger btn-sm ml-2" (click)="onClickDelete(sbooks.id)" *ngIf="isAdmin()">Delete</button>
 
     </tr>
   </table>

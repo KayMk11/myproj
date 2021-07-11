@@ -11,15 +11,23 @@ const headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
 })
 export class UserService {
   private baseUrl = 'http://localhost:8080/user';
-  constructor(private httpclient:HttpClient) { }
+  constructor(private httpclient: HttpClient) { }
 
-  getUserDetails(user:User){
-    return this.httpclient.get<User>(`${this.baseUrl}/view`,{headers})
-    .pipe(catchError(this.handleError));
+  getUserDetails(user: User) {
+    return this.httpclient.get<User>(`${this.baseUrl}/view`, { headers })
+      .pipe(catchError(this.handleError));
   }
-  addAddress(useraddr:UserAddress): Observable<UserAddress>{
+  addAddress(useraddr: UserAddress): Observable<UserAddress> {
     console.log(useraddr)
-    return this.httpclient.post<UserAddress>(`${this.baseUrl}/address/add`, useraddr,{headers})
+    return this.httpclient.post<UserAddress>(`${this.baseUrl}/address/add`, useraddr, { headers })
+  }
+  updatePassword(pass: string) {
+    console.log(pass)
+    return this.httpclient.put<User>(`${this.baseUrl}/pswd`, { password: pass }, { headers }).subscribe(
+      res => {
+        console.log(res)
+      }
+    )
   }
 
   private handleError(httpError: HttpErrorResponse) {

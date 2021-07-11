@@ -46,17 +46,6 @@ export class LoginComponent implements OnInit {
   }
 
   navigateTo() {
-    // switch (sessionStorage.getItem('roles')) {
-    //   case '["ROLE_USER","ROLE_ADMIN"]':
-    //     break;
-    //   case '["ROLE_ADMIN"]':
-    //     this.router.navigate(['adminhome']);
-    //     break;
-    //   case '["ROLE_USER"]':
-    //     break;
-    //   default:
-    //     break;
-    // }
     if (sessionStorage.getItem('roles').includes('ROLE_ADMIN'))
       this.router.navigate(['adminhome']);
     else if (sessionStorage.getItem('roles').includes('ROLE_USER'))

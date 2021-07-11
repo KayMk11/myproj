@@ -26,39 +26,41 @@ import { AddauthorComponent } from './Author/addauthor/addauthor.component';
 import { AllauthorsComponent } from './Author/allauthors/allauthors.component';
 import { BookissueComponent } from './User/bookissue/bookissue.component';
 import { ViewprofileComponent } from './User/viewprofile/viewprofile.component';
+import { SubscriptionComponent } from './User/subscription/subscription.component';
 
 
 const routes: Routes = [
-  {path:'', redirectTo: '/home', pathMatch:'full'},
-  {path:'signup', component: SignUpComponent},
-  {path:'login', component: LoginComponent},
-  {path:'home', component: HomeComponent},
-  {path:'menu', component: MenuComponent},
-  {path:'adminhome', component: AdminHomeComponent},
-  {path:'addbook', component:AddbookComponent},
-  {path:'displayallbooks', component: DisplayallBooksComponent},
-  {path:'booksearch', component: BooksearchComponent},
-  {path:'displayallpublishers', component: DisplayAllComponent},
-  {path:'addpublisher', component: AddPublisherComponent},
-  {path:'addDamagedBook', component: AddDamagedbookComponent},
-  {path:'displayalldamagedbooks', component: DisplayallDamagedbooksComponent},
-  {path:'suggestbook', component: SuggestbookComponent},
-  {path:'displayallsuggestedbooks', component:AllsuggestedbooksComponent},
-  {path:'feedbacks', component:AllfeedbacksComponent},
-  {path:'orderbooks', component:AddorderComponent},
-  {path:'orderlist', component:AllordersComponent},
-  {path:'addauthor', component:AddauthorComponent},
-  {path:'allauthor', component:AllauthorsComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'signup', component: SignUpComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'menu', component: MenuComponent },
+  { path: 'adminhome', component: AdminHomeComponent },
+  { path: 'addbook', component: AddbookComponent },
+  { path: 'displayallbooks', component: DisplayallBooksComponent },
+  { path: 'booksearch', component: BooksearchComponent },
+  { path: 'displayallpublishers', component: DisplayAllComponent },
+  { path: 'addpublisher', component: AddPublisherComponent },
+  { path: 'addDamagedBook', component: AddDamagedbookComponent },
+  { path: 'displayalldamagedbooks', component: DisplayallDamagedbooksComponent },
+  { path: 'suggestbook', component: SuggestbookComponent },
+  { path: 'displayallsuggestedbooks', component: AllsuggestedbooksComponent },
+  { path: 'feedbacks', component: AllfeedbacksComponent },
+  { path: 'orderbooks', component: AddorderComponent },
+  { path: 'orderlist', component: AllordersComponent },
+  { path: 'addauthor', component: AddauthorComponent },
+  { path: 'allauthor', component: AllauthorsComponent },
 
   // User
   // {path:'usermenu', component: UserMenuComponent },
-  {path:'userhome', component: UserHomeComponent},
-  {path:'issuebook', component: BookissueComponent},
-  {path:'addfeedback', component: AddfeedbackComponent },
-  {path:'viewprofile', component: ViewprofileComponent},
-  {path:'updatepassword', component:UpdatepasswordComponent},
-  {path:'viewfeedbacks', component:ViewfeedbacksComponent},
-  {path:'borrowedbooks', component:BooksborrowedComponent}
+  { path: 'userhome', component: UserHomeComponent },
+  { path: 'issuebook', component: BookissueComponent },
+  { path: 'addfeedback', component: AddfeedbackComponent },
+  { path: 'viewprofile', component: ViewprofileComponent },
+  { path: 'updatepassword', component: UpdatepasswordComponent },
+  { path: 'viewfeedbacks', component: ViewfeedbacksComponent },
+  { path: 'borrowedbooks', component: BooksborrowedComponent },
+  { path: 'subscription', component: SubscriptionComponent }
 ];
 
 @NgModule({

@@ -1,5 +1,7 @@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { OrderWrapper } from './order-wrapper.model';
+import { BookOrderService } from 'src/app/Services/book-order.service';
 
 @Component({
   selector: 'app-addorder',
@@ -7,25 +9,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./addorder.component.css']
 })
 export class AddorderComponent implements OnInit {
-  orderbook:FormGroup;
-  submitted=false;
-  constructor() { }
+  orderbook: FormGroup;
+  submitted = false;
+  constructor(private orderService: BookOrderService) { }
 
   ngOnInit(): void {
     this.orderbook = new FormGroup({
       quantity: new FormControl(null, [Validators.required]),
       publisherId: new FormControl(null, [Validators.required]),
-      orderDate: new FormControl((new Date()).toISOString().substring(0, 10))
+      bookId: new FormControl(null, [Validators.required])
     })
   }
-  
-  onSubmit(){
+
+  onSubmit() {
     this.submitted = true;
     if (this.orderbook.invalid) {
       return;
     }
-    alert('Damaged Book added successfully');
+    let order: OrderWrapper = new OrderWrapper(null, null, null);
+    order.bookId = this.orderbook.value.bookId;
+    order.publisherId = this.orderbook.value.publisherId;
+    order.quantity = this.orderbook.value.quantity;
 
+    this.orderService.addOrder(order);
+    // alert('Damaged Book added successfully');
     this.orderbook.reset();
   }
 
