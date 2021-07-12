@@ -22,7 +22,7 @@
       <td>{{bookborrow.returnDate}}</td>
       <td>{{bookborrow.status}}</td>
       <button class="btn btn-danger btn-sm ml-2" data-bs-toggle="modal" data-bs-target="#returnModal"
-        (click)="onClickReturn(bookborrow.issueId)">Return</button>
+        (click)="onClickReturn(bookborrow.issueId)" *ngIf="bookborrow.status!=='Returned'">Return</button>
     </tr>
   </table>
 </div>

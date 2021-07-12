@@ -1,5 +1,4 @@
-
-.container{
+.container {
   background-color: rgba(231, 246, 250, 0.80);
   padding: 1.25rem 40px;
   color: black;
@@ -7,12 +6,15 @@
   border-radius: 1.25rem;
   width: 500px;
 }
-.details{
+
+.details {
   padding: 1rem 0.5rem;
 }
-button{
+
+button {
   margin: 0.25rem;
 }
-.form-group input{
+
+.form-group input {
   margin-bottom: 0.5rem;
 }

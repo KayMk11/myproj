@@ -29,7 +29,14 @@ export class UserService {
       }
     )
   }
-
+  startSubscription() {
+    return this.httpclient.get(`${this.baseUrl}/subscription/start`, { headers })
+      .pipe(catchError(this.handleError));
+  }
+  stopSubscription() {
+    return this.httpclient.get(`${this.baseUrl}/subscription/cancel`, { headers })
+      .pipe(catchError(this.handleError));
+  }
   private handleError(httpError: HttpErrorResponse) {
     if (httpError.error instanceof ErrorEvent) {
       console.error('An error occurred:', httpError.error.message);

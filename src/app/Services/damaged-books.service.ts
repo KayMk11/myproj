@@ -3,30 +3,31 @@ import { Observable, throwError } from 'rxjs';
 import { DamagedBook } from './../models/damagedBook.model';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { DamagedBooks } from '../DamagedBook/DamagedBook.model';
 @Injectable({
   providedIn: 'root'
 })
 export class DamagedBooksService {
   private baseUrl = 'http://localhost:8080/damagedbooks';
-  constructor(private httpclient:HttpClient) { }
+  constructor(private httpclient: HttpClient) { }
 
-  addDamagedBook(damagedbook:DamagedBook): Observable<DamagedBook>{
+  addDamagedBook(damagedbook: DamagedBooks): Observable<DamagedBook> {
     return this.httpclient.post<DamagedBook>(`${this.baseUrl}/add`, damagedbook,)
-    .pipe(catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
-  getAllDamagedBooks(){
+  getAllDamagedBooks() {
     return this.httpclient.get<DamagedBook[]>(`${this.baseUrl}/get/all`)
-    .pipe(catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
-  deleteDamagedBook(id:number):Observable<{}>{
+  deleteDamagedBook(id: number): Observable<{}> {
     return this.httpclient.delete(`${this.baseUrl}/remove/${id}`)
-    .pipe(catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
-  getDamagedBookById(id:number){
+  getDamagedBookById(id: number) {
     return this.httpclient.get<DamagedBook>(`${this.baseUrl}/get/${id}`)
-    .pipe(catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
   private handleError(httpError: HttpErrorResponse) {

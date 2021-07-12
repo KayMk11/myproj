@@ -1,1 +1,18 @@
-<p>subscription works!</p>
+<div class="container">
+    <div class="row">
+        <div class="header">
+            <h2>Subscription Status</h2>
+        </div>
+        <div class="">
+            <p>Status: {{user.subscriptionStatus}}</p>
+            <p *ngIf="isSubscriptionActive()==true">Start date: {{user.subscriptionStartDate}}</p>
+            <p *ngIf="isSubscriptionActive()==true">Expire date: {{user.subscriptionExpireDate}}</p>
+        </div>
+        <button class="btn btn-primary" data-bs-toggle="modal" (click)="onClickCancel()"
+            *ngIf="isSubscriptionActive()==true">Cancel Subscription</button>
+
+        <button class="btn btn-primary" data-bs-toggle="modal" (click)="onClickStart()"
+            *ngIf="isSubscriptionActive()==false">Start Subscription</button>
+
+    </div>
+</div>

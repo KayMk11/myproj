@@ -1,7 +1,8 @@
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Books } from '../books.model';
 import { BooksService } from 'src/app/Services/books.service';
+import { BookWrapper } from '../addbook/book-wrapper.model';
 
 @Component({
   selector: 'app-displayall-books',
@@ -12,8 +13,21 @@ export class DisplayallBooksComponent implements OnInit {
   searchBooks: FormGroup;
   searchQuery: string;
   books: Books[] = [];
+  book: Books;
 
-  constructor(private bookService: BooksService) { }
+  BookUpdateForm = this.fb.group({
+    bookId: { value: '', disabled: true },
+    Title: ['', [Validators.required]],
+    subject: ['', [Validators.required]],
+    publishedYear: ['', [Validators.required]],
+    publisherId: ['', [Validators.required]],
+    isbn: ['', [Validators.required]],
+    quantity: ['', [Validators.required]],
+    shelfDetails: ['', [Validators.required]],
+    bookCost: ['', [Validators.required]],
+    authorIdList: this.fb.array([this.createElement()])
+  })
+  constructor(private bookService: BooksService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.getAllBooks();
@@ -76,7 +90,56 @@ export class DisplayallBooksComponent implements OnInit {
       }
     )
   }
+  createElement() {
+    return this.fb.control('', Validators.required);
+  }
+  addAuthor() {
+    this.authorIdList.push(this.createElement());
+  }
+  get authorIdList() {
+    return this.BookUpdateForm.get('authorIdList') as FormArray;
+  }
+  onClickUpdate(id: number) {
+    this.bookService.getBooksById(id).subscribe(data => {
+      this.book = data;
+      this.newUpdateForm();
+    })
+  }
+  newUpdateForm() {
+    this.BookUpdateForm.patchValue({
+      bookId: this.book.bookId,
+      Title: this.book.bookId,
+      subject: this.book.subject,
+      publishedYear: this.book.subject,
+      publisherId: this.book.publisher.publisherId,
+      isbn: this.book.isbn,
+      quantity: this.book.quantity,
+      shelfDetails: this.book.shelfDetails,
+      bookCost: this.book.bookCost
 
+      // authorIdList = 
+    });
+  }
+  deleteControl(i: number) {
+    if (this.authorIdList.length !== 1) {
+      this.authorIdList.removeAt(i);
+    }
+  }
+  onSubmit() {
+    let book: BookWrapper = new BookWrapper(null, '', '', [], null, null, '', null, '', null)
+    book.bookId = this.BookUpdateForm.getRawValue().bookId;
+    book.title = this.BookUpdateForm.value.Title;
+    book.subject = this.BookUpdateForm.value.subject;
+    book.publishedYear = this.BookUpdateForm.value.publishedYear;
+    book.publisherId = this.BookUpdateForm.value.publisherId;
+    book.isbn = this.BookUpdateForm.value.isbn;
+    book.quantity = this.BookUpdateForm.value.quantity;
+    book.shelfDetails = this.BookUpdateForm.value.shelfDetails;
+    book.bookCost = this.BookUpdateForm.value.bookCost;
+    book.authorIdList = this.BookUpdateForm.value.authorIdList
+
+    this.bookService.updateBook(book)
+  }
 
 
 }

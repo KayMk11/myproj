@@ -13,11 +13,7 @@ import { DatePipe } from '@angular/common';
 export class SignUpComponent implements OnInit {
   signupForm: FormGroup;
   // roles= ['User', 'Admin'];
-<<<<<<< HEAD
   user: User = new User(null, '', '', '', '', null, '', null, []);
-=======
-  user:User = new User(null,'','','','','','',new Date(),[]);
->>>>>>> 9a47a63fde535076a726c5b2bb4b5e4604029f47
   selectedRoles: string[];
   submitted = false;
   isRegistered = false;

@@ -33,7 +33,9 @@ export class BooksService {
     return this.httpclient.get<Books[]>(`${this.baseURL}/search/subject/${query}`)
       .pipe(catchError(this.handleError))
   }
-
+  getBooksById(id: number): Observable<Books> {
+    return this.httpclient.get<Books>(`${this.baseURL}/get/${id}`).pipe(catchError(this.handleError))
+  }
   addBook(book: BookWrapper) {
     console.log(book)
     this.httpclient.post<Books>(`${this.baseURL}/add`, book, { headers }).subscribe(
@@ -46,9 +48,12 @@ export class BooksService {
     return this.httpclient.delete(`${this.baseURL}/delete/${bookId}`)
       .pipe(catchError(this.handleError))
   }
-  updateBook(book: Books) {
-    return this.httpclient.put(`${this.baseURL}/update`, book)
-      .pipe(catchError(this.handleError))
+  updateBook(book: BookWrapper) {
+    return this.httpclient.put(`${this.baseURL}/update`, book).subscribe(
+      res => {
+        console.log(res)
+      }
+    )
   }
 
   private handleError(httpError: HttpErrorResponse) {

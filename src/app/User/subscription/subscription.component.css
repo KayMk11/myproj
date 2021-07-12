@@ -1,0 +1,20 @@
+.container {
+    background-color: rgba(231, 246, 250, 0.80);
+    padding: 1.25rem 40px;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 1.25rem;
+    width: 500px;
+}
+
+.details {
+    padding: 1rem 0.5rem;
+}
+
+button {
+    margin: 0.25rem;
+}
+
+.form-group input {
+    margin-bottom: 0.5rem;
+}

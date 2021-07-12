@@ -1,8 +1,9 @@
 import { DamagedBooksService } from './../../Services/damaged-books.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { DamagedBook } from 'src/app/models/damagedBook.model';
+import { DamagedBooks } from '../DamagedBook.model';
 import { Books } from 'src/app/Books/books.model';
+// import { DamagedBookWrapper } from '../damaged-book-wrapper.model';
 
 @Component({
   selector: 'app-add-damagedbook',
@@ -13,7 +14,7 @@ export class AddDamagedbookComponent implements OnInit {
   damagedbook: FormGroup;
   submitted = false;
   isAdded = false;
-  dbook: DamagedBook = new DamagedBook(0, new Books(null, '', '', [], null, null, '', null, '', null), '', 0);
+  dbook: DamagedBooks = new DamagedBooks();
   constructor(private damagedservice: DamagedBooksService) { }
 
   ngOnInit(): void {
@@ -25,7 +26,7 @@ export class AddDamagedbookComponent implements OnInit {
   }
   onSubmit() {
     this.submitted = true;
-    this.dbook.book = this.damagedbook.value.bookId
+    this.dbook.bookId = this.damagedbook.value.bookId
     this.dbook.description = this.damagedbook.value.description
     this.dbook.quantity = this.damagedbook.value.quantity
     this.save();

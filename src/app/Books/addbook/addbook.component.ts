@@ -16,7 +16,7 @@ export class AddbookComponent implements OnInit {
   addbookForm: FormGroup;
   submitted = false;
 
-  constructor(private fb: FormBuilder, private authorService: AuthorService, private publisherService: PublisherService, private bookService: BooksService) {
+  constructor(private fb: FormBuilder, private bookService: BooksService) {
   }
 
   ngOnInit(): void {
