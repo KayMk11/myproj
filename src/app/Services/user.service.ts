@@ -29,6 +29,12 @@ export class UserService {
       }
     )
   }
+  updateUserDetails(user:User): Observable<any>{
+    return this.httpclient.put<any>(`${this.baseUrl}/update`, user);
+  }
+  updateAddress(useraddr:UserAddress):Observable<any>{
+    return this.httpclient.put<any>(`${this.baseUrl}/address/update`, useraddr)
+  }
 
   private handleError(httpError: HttpErrorResponse) {
     if (httpError.error instanceof ErrorEvent) {

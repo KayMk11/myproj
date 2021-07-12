@@ -3,4 +3,12 @@ body{
   background: url('src/app/menu/images/pexels-janko-ferlic-590493.jpg') no-repeat center fixed;
   min-height: 100vh;
   background-size: 100%;
+  box-sizing: border-box;
+}
+@media (width: 300px) {
+  body{
+    background: url('src/app/menu/images/pexels-janko-ferlic-590493.jpg') no-repeat center fixed;
+    min-height: 100vh;
+    background-size: 100%;
+  }
 }

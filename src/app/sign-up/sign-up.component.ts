@@ -13,11 +13,17 @@ import { DatePipe } from '@angular/common';
 export class SignUpComponent implements OnInit {
   signupForm: FormGroup;
   // roles= ['User', 'Admin'];
+<<<<<<< HEAD
   user: User = new User(null, '', '', '', '', null, '', null, []);
+=======
+  user:User = new User(null,'','','','','','',new Date(),[]);
+>>>>>>> 9a47a63fde535076a726c5b2bb4b5e4604029f47
   selectedRoles: string[];
   submitted = false;
   isRegistered = false;
-  constructor(private authService: AuthService,) {
+
+  currentDate = new Date();
+  constructor(private authService: AuthService, private datepipe: DatePipe) {
   }
 
   ngOnInit(): void {
@@ -29,16 +35,12 @@ export class SignUpComponent implements OnInit {
       firstname: new FormControl(null, Validators.required),
       lastname: new FormControl(null, Validators.required),
       mobileno: new FormControl(null, [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-      dob: new FormControl(null, [Validators.required])
+      dateOfBirth: new FormControl(this.datepipe.transform(this.currentDate, 'yyyy-MM-dd')),
     })
   }
 
   onSubmit() {
     this.submitted = true;
-    if (this.signupForm.invalid) {
-      return;
-    }
-
     this.user.userName = this.signupForm.value.username
     this.user.password = this.signupForm.value.password
     this.user.firstName = this.signupForm.value.firstname
@@ -46,13 +48,15 @@ export class SignUpComponent implements OnInit {
     // this.user.mobileno = '9421082038'
     this.user.mobileno = this.signupForm.value.mobileno
     this.user.email = this.signupForm.value.email
-    this.user.dateOfBirth = this.signupForm.value.dob
+    this.user.dateOfBirth = this.signupForm.value.dateOfBirth
     this.user.roles = ['user']
+    console.log(this.user);
     this.save();
     this.signupForm.reset();
   }
 
   save() {
+    console.log(this.user);
     this.authService.signup(this.user).subscribe(user => {
       console.log(user);
       this.isRegistered = true;

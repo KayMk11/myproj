@@ -36,7 +36,7 @@ export class DisplayallDamagedbooksComponent implements OnInit {
         this.DamagedBooks = data;
       })
     },error=>{
-      this.deleteMsg = error
+      this.deleteMsg = error 
     });
   }
 

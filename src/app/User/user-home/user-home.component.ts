@@ -1,3 +1,4 @@
+import { User } from 'src/app/models/users.model';
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserAddress } from 'src/app/models/useraddress.model';
@@ -10,14 +11,19 @@ import { UserAddress } from 'src/app/models/useraddress.model';
 export class UserHomeComponent implements OnInit {
   token: string
   roles: string
-  username:string
-  constructor() { }
+  userName:string;
+  constructor() {
+
+   }
 
   ngOnInit(): void {
-    this.roles = sessionStorage.getItem('roles')
-    this.token = sessionStorage.getItem('token')
+
   }
+
   onSubmit(){
   }
 
+  getuser():string {
+    return sessionStorage.getItem('userName')
+  }
 }
