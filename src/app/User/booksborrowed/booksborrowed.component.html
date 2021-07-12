@@ -1,7 +1,7 @@
 <div class="row">
   <!-- Penalty/Fine will be displayed here -->
   <div class="search">
-    <form [formGroup]="borrowedBooks">
+    <form [formGroup]="borrowedBooks" (keyup)="search()">
       <h2 class="header">Borrowed Books</h2>
       <input type="text" id="search" placeholder="Search" class="col-lg-10" formControlName="searchText">
       <button type="submit" class="btn btn-primary">Search</button>

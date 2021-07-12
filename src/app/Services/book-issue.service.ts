@@ -21,7 +21,7 @@ export class BookIssueService {
     return this.httpclient.get<Bookissue[]>(`${this.baseURL}/borrowhistory`).pipe(catchError(this.handleError))
   }
   borrowHistoryById(id: number) {
-    return this.httpclient.get<Bookissue>(`${this.baseURL}/borrowhistory/${id}`).pipe(catchError(this.handleError))
+    return this.httpclient.get<Bookissue[]>(`${this.baseURL}/borrowhistory/${id}`).pipe(catchError(this.handleError))
   }
   private handleError(httpError: HttpErrorResponse) {
     if (httpError.error instanceof ErrorEvent) {

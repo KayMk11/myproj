@@ -10,11 +10,11 @@ import { Publisher } from 'src/app/models/publisher.model';
 })
 export class AddPublisherComponent implements OnInit {
   addpublisherForm: FormGroup;
-  submitted=false;
-  isAdded=false;
+  submitted = false;
+  isAdded = false;
 
-  publisher:Publisher = new Publisher();
-  constructor(private publisherservice:PublisherService) { }
+  publisher: Publisher = new Publisher();
+  constructor(private publisherservice: PublisherService) { }
 
   ngOnInit(): void {
     this.addpublisherForm = new FormGroup({
@@ -29,7 +29,7 @@ export class AddPublisherComponent implements OnInit {
     })
   }
 
-  onSubmit(){
+  onSubmit() {
     this.submitted = true;
     this.publisher.publisherName = this.addpublisherForm.value.publisherName
     this.publisher.contactNo = this.addpublisherForm.value.contactNo
@@ -43,12 +43,12 @@ export class AddPublisherComponent implements OnInit {
     this.addpublisherForm.reset();
   }
 
-  save(){
-    this.publisherservice.addPublisher(this.publisher).subscribe(publisher =>{
+  save() {
+    this.publisherservice.addPublisher(this.publisher).subscribe(publisher => {
       console.log(publisher);
-      this.isAdded=true;
+      this.isAdded = true;
     },
-  error=>console.log(error))
+      error => console.log(error))
   }
 
 }

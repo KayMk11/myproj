@@ -37,7 +37,7 @@ export class BooksborrowedComponent implements OnInit {
   getBorrowHistoryByBookId(id: number) {
     this.bookIssueService.borrowHistoryById(id).subscribe(
       data => {
-        this.booksborrowed = [data];
+        this.booksborrowed = data;
       }
     )
   }
